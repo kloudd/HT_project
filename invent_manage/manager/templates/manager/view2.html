@@ -1,0 +1,163 @@
+{% extends "manager/index.html" %}
+{% block nav-view %}
+class="active"
+{% endblock %}
+{% block for_view %}
+<div class="container-fluid">
+	<div id="pageTab" class="row-fluid">
+		<div class="span2 well">
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="#page1"  data-toggle="tab">system config</a>
+				</li>
+				<li><a href="#page2"  data-toggle="tab">System INFO</a>
+				</li>
+				<li><a href="#page3"  data-toggle="tab">WArranty details</a>
+				</li>
+				<li><a href="{% url 'exp' %}">Export to .xls</a>
+				</li>
+				<li>&nbsp;&nbsp;&nbsp;<a href="{% url 'add' %}"><i class="icon-plus"></i>Add Record</a>
+				</li>
+			</ul>
+		</div>
+		<div class="span10 well">
+			<div class="tab-content">
+				<div id="page1" class="tab-pane">
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>ID</th>
+								<th>UID</th>
+								<th>MACHINE</th>
+								<th>DEPARTMENT</th>
+								
+								<th>MODEL</th>
+								<th>S NO.</th>
+								<th>PROCESSOR</th>
+								<th>RAM</th>
+								<th>HDD</th>
+								<th>OS</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% if orderby %}
+							{% for poll in orderby %}
+							<tr>
+								<td><a class="btn btn-small btn-primary" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
+								<td><a class="btn btn-small btn-danger" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
+								<td>{{ poll.id }}</td>
+								<td>{{ poll.uid }}</td>
+								<td>{{ poll.username }}</td>
+								<td>{{ poll.department }}</td>
+								
+								<td>{{ poll.model_name }}</td>
+								<td>{{ poll.s_no }}</td>
+								<td>{{ poll.processor }}</td>
+								<td>{{ poll.ram }}</td>
+								<td>{{ poll.hdd }}</td>
+								<td>{{ poll.os }}</td>
+							</tr>
+							{% endfor %}
+							{% else %}
+							<p>NO RECORDS AVAILABLE</p>
+							{% endif %}
+						</tbody>
+					
+					</table>
+				</div>
+				<div id="page2" class="tab-pane">
+					<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>ID</th>
+								<th>UID</th>
+								<th>ASSET&nbsp;CODE</th>
+								<th>ASSET&nbsp;CATEGORY</th>
+								<th>STATE</th>
+								<th>HUB</th>
+								<th>LOCATION</th>
+								<th>FLOOR</th>
+								<th>USER NAME</th>
+								<th>EMP&nbsp;CODE</th>
+								<th>DESIGNATION</th>			
+							</tr>
+						</thead>
+						<tbody>
+							{% if orderby %}
+							{% for poll in orderby %}
+							<tr>
+								<td><a class="btn btn-small btn-primary" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
+								<td><a class="btn btn-small btn-danger" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
+								<td>{{ poll.id }}</td>
+								<td>{{ poll.uid }}</td>
+								<td>{{ poll.asset_code }}</td>
+								<td>{{ poll.asset_category }}</td>
+								<td>{{ poll.state }}</td>
+								<td>{{ poll.hub }}</td>
+								<td>{{ poll.location }}</td>
+								<td>{{ poll.floor }}</td>
+								<td>{{ poll.server }}</td>
+								<td>{{ poll.empcode }}</td>
+								<td>{{ poll.designation }}</td>
+							</tr>
+							{% endfor %}
+							{% else %}
+							<p>NO RECORDS AVAILABLE</p>
+							{% endif %}
+						</tbody>
+						
+					</table>
+				</div>
+				<div id="page3" class="tab-pane">
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>ID</th>
+								<th>UID</th>
+								<th>ROLE</th>
+								<th>AMC</th>
+								<th>VENDOR</th>
+								<th>START DATE</th>
+								<th>EXP DATE</th>
+								<th>COMPANY</th>
+								<th>PO DETAILS</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% if orderby %}
+							{% for poll in orderby %}
+							<tr>
+								<td><a class="btn btn-small btn-primary" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
+								<td><a class="btn btn-small btn-danger" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
+								<td>{{ poll.id }}</td>
+								<td>{{ poll.uid }}</td>
+								<td>{{ poll.role }}</td>
+								<td>{{ poll.warr_amc }}</td>
+								<td>{{ poll.warr_vend }}</td>
+								<td>{{ poll.warr_start_date }}</td>
+								<td>{{ poll.warr_exp_date }}</td>
+								<td>{{ poll.company }}</td>
+								<td>{{ poll.po_details }}</td>
+							</tr>
+							{% endfor %}
+							{% else %}
+							<p>NO RECORDS AVAILABLE</p>
+							{% endif %}
+						</tbody>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$(function () {
+	$('#pageTab a:first').tab('show');
+})
+</script>
+{% endblock %}

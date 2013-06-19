@@ -1,0 +1,77 @@
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="{% static 'manager/bootstrap/css/bootstrap.css' %}"/>
+	<link type="text/css" rel="stylesheet" href="{% static 'manager/bootstrap/css/docs.css' %}"/>
+	<!-- <link type="text/css" rel="stylesheet" href="{% static 'manager/bootstrap/css/bootstrap-sortable.css' %}"/> -->
+	<title>INVENTORY MANAGEMENT</title>
+	<link href="{% static 'manager/bootstrap/img/icon.ico' %}" rel="icon">
+	<link href="{% static 'manager/bootstrap/img/icon.ico' %}" rel="shortcut icon">
+	<script src="{% static 'manager/bootstrap/js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'manager/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!-- // <script type="text/javascript" src="{% static 'manager/bootstrap/js/bootstrap-sortable.js' %}"></script> -->
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav">
+					<li{% block nav-index %}
+					{% endblock %}>
+					<a href = "{% url 'index' %}">HOME</a></li>
+					<li{% block nav-view %}
+					{% endblock %}>
+					<a href = "{% url 'view' %}">VIEW</a></li>
+					<li{% block nav-add %}
+					{% endblock %}>
+					<a href = "{% url 'add' %}">ADD</a></li>
+					<li{% block nav-contacts %}
+					{% endblock %}>
+					<a href = "{% url 'contact_us' %}">ABOUT US</a></li>
+					<li>
+						<div class="offset5">
+					<a class="brand" href = "{% url 'adminpage' %}">superadmin</a></div></li>
+					<li>
+						<div>
+							<a class="brand" href = "{% url 'logout' %}">logout</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="jumbotron subhead" id="pageTop">
+		<div class="container">
+			<h2>WELCOME TO HINDUSTAN TIMES </br>INVENTORY MANGAEMENT!!!</h2>
+		</div>
+	</div>
+	<div class="">
+		<div id="pageMiddle" class="container-fluid">
+			<div class="row-fluid">
+				<!-- <div class="span2 well">
+					<td>
+						<ul class="nav nav-pills nav-stacked">
+					</td>
+				</div> -->
+
+				<!-- <div id="pageRight" class="span10 well"> -->
+				{% block for_index %}
+				{% endblock %}
+				{% block for_view %}
+				{% endblock %}
+				{% block for_add %}
+				{% endblock %}
+				{% block for_edit %}
+				{% endblock %}
+				{% block for_notadd %}
+				{% endblock %}
+
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

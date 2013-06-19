@@ -1,0 +1,209 @@
+{% extends "manager/index.html" %}
+{% load bootstrap_toolkit %}
+{% block nav-add %}
+class="active"
+{% endblock %}
+{% block for_add %}
+<div class="container">
+  <div class="tabbable columns">
+   <form class="form-horizontal" method="POST" action="/manager/handle_add/">
+    {% csrf_token %}
+    <ul class="nav nav-tabs" id="myTab">
+      <li><a href="#step1" data-toggle="tab">MACHINE INFO</a></li>
+      <li><a href="#step2" data-toggle="tab">MACHINE LOCATION</a></li>
+      <li><a href="#step3" data-toggle="tab">USER INFO</a></li>
+      <li><a href="#step4" data-toggle="tab">MACHINE CONFIGURATION</a></li>
+      <li><a href="#step5" data-toggle="tab">WARRANTY AND PO</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade active in" id="step1">
+        <div class="control-group">
+          <label class="control-label">UID</label>
+          <div class="controls">
+            <input type="text" name="uid" placeholder="UID">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">MACHINE NAME</label>
+          <div class="controls">
+            <input type="text" name="username" placeholder="machine name">
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label">Asset Code</label>
+          <div class="controls">
+            <input type="text" name="asset_code" placeholder="asset code">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Asset Category</label>
+          <div class="controls">
+            <input type="text" name="asset_category" placeholder="asset category">
+          </div>
+        </div>
+        
+      </div>
+      <div class="tab-pane fade" id="step2">
+        <div class="control-group">
+          <label class="control-label">REGION</label>
+          <div class="controls">
+            <select id="state">
+              <option>--------</option>
+              <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+              <option value="MAHARASHTRA">MAHARASHTRA</option>
+              <option value="BIHAR">BIHAR</option>
+              <option value="UTTARAKHAND">UTTARAKHAND</option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Hub</label>
+          <div class="controls">
+            <input type="text" name="hub" placeholder="hub">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Location</label>
+          <div class="controls">
+            <input type="text" name="location" placeholder="location">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Floor</label>
+          <div class="controls">
+            <input type="text" name="floor" placeholder="floor">
+          </div>
+        </div>
+        
+        
+      </div>
+      <div class="tab-pane fade" id="step3">
+        
+        <div class="control-group">
+          <label class="control-label">Emp code</label>
+          <div class="controls">
+            <input type="text" name="empcode" placeholder="empcode">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">user name</label>
+          <div class="controls">
+            <input type="text" name="username" placeholder="user name">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Designation</label>
+          <div class="controls">
+            <input type="text" name="designation" placeholder="designation">
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label">Department</label>
+          <div class="controls">
+            <input type="text" name="department" placeholder="department">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Role</label>
+          <div class="controls">
+            <input type="text" name="role" placeholder="role">
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="step4">
+        
+        
+        
+        <div class="control-group">
+          <label class="control-label">Model</label>
+          <div class="controls">
+            <input type="text" name="model_name" placeholder="model">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">S No</label>
+          <div class="controls">
+            <input type="text" name="s_no" placeholder="sno">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Processor</label>
+          <div class="controls">
+            <input type="text" name="processor" placeholder="processor">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">RAM</label>
+          <div class="controls">
+            <input type="text" name="ram" placeholder="ram">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">HDD</label>
+          <div class="controls">
+            <input type="text" name="hdd" placeholder="hdd">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">OS</label>
+          <div class="controls">
+            <input type="text" name="os" placeholder="os">
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="step5">
+        <div class="control-group">
+          <label class="control-label">Warranty/AMC</label>
+          <div class="controls">
+            <input type="text" name="warr_amc" placeholder="warr_amc">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Warranty Vendor</label>
+          <div class="controls">
+            <input type="text" name="warr_vend" placeholder="warr_vend">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Warranty Start Date</label>
+          <div class="controls">
+            <input type="text" name="warr_start_date" placeholder="warr_start_date">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Warranty Expiry Date</label>
+          <div class="controls">
+            <input type="text" name="warr_exp_date" placeholder="warr_exp_date">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Company</label>
+          <div class="controls">
+            <input type="text" name="company" placeholder="company">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Po Details</label>
+          <div class="controls">
+            <input type="text" name="po_details" placeholder="po_details">
+          </div>
+        </div>
+        <div class="controls">
+          <input type="submit" value="submit" class="btn btn-primary" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+<script>
+$(function () {
+  $('#myTab a:first').tab('show');
+})
+</script>
+{% endblock %}
