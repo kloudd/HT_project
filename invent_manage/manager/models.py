@@ -5,15 +5,15 @@ class Poll(models.Model):
     uid = models.CharField(max_length=10, null=True)
     asset_code = models.CharField(max_length=200, null=True)
     asset_category = models.CharField(max_length=200, null=True)
-    state = models.CharField(max_length=200, null=True)
-    hub = models.CharField(max_length=200, null=True)
+    region = models.CharField(max_length=200, null=True)
+    unit = models.CharField(max_length=200, null=True)
     location = models.CharField(max_length=200, null=True)
     floor = models.CharField(max_length=200, null=True)
-    server = models.CharField(max_length=200, null=True)
+    username = models.CharField(max_length=200, null=True)
     empcode = models.CharField(max_length=200, null=True)
     designation = models.CharField(max_length=200, null=True)
     department = models.CharField(max_length=200, null=True)
-    username = models.CharField(max_length=200)
+    machinename = models.CharField(max_length=200, null=True)
     role = models.CharField(max_length=200, null=True)
     model_name = models.CharField(max_length=200, null=True)
     s_no = models.CharField(max_length=200)
@@ -27,6 +27,10 @@ class Poll(models.Model):
     warr_exp_date = models.CharField(max_length=200, null=True)
     company = models.CharField(max_length=200, null=True)
     po_details = models.CharField(max_length=200, null=True)
+    working = models.IntegerField(max_length=10)
+    ram_change_date = models.DateTimeField('date published')
+    hdd_change_date = models.DateTimeField('date published')
+
 
 
 class PollForm(ModelForm):

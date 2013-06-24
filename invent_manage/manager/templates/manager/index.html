@@ -5,13 +5,24 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="{% static 'manager/bootstrap/css/bootstrap.css' %}"/>
+	<link type="text/css" rel="stylesheet" href="{% static 'manager/bootstrap/css/datepicker.css' %}"/>
+	<link type="text/css" rel="stylesheet" href="{% static 'manager/bootstrap/css/bootstrap-sortable.css' %}"/>
 	<link type="text/css" rel="stylesheet" href="{% static 'manager/bootstrap/css/docs.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="/media/admin/css/forms.css"/>
+	<link rel="stylesheet" type="text/css" href="/media/admin/css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="/media/admin/css/global.css"/>
+	<link rel="stylesheet" type="text/css" href="/media/admin/css/widgets.css"/>
+
 	<!-- <link type="text/css" rel="stylesheet" href="{% static 'manager/bootstrap/css/bootstrap-sortable.css' %}"/> -->
 	<title>INVENTORY MANAGEMENT</title>
 	<link href="{% static 'manager/bootstrap/img/icon.ico' %}" rel="icon">
 	<link href="{% static 'manager/bootstrap/img/icon.ico' %}" rel="shortcut icon">
 	<script src="{% static 'manager/bootstrap/js/jquery.js' %}"></script>
-	<script type="text/javascript" src="{% static 'manager/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'manager/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'manager/bootstrap/js/bootstrap-sortable.js' %}"></script>
+	<script type="text/javascript" src="/my_admin/jsi18n/"></script>
+	<script type="text/javascript" src="/media/admin/js/core.js"></script>
+	<script type="text/javascript" src="{% static 'manager/bootstrap/js/bootstrap-datepicker.js' %}"></script>
 	<!-- // <script type="text/javascript" src="{% static 'manager/bootstrap/js/bootstrap-sortable.js' %}"></script> -->
 </head>
 <body>
@@ -21,22 +32,31 @@
 				<ul class="nav">
 					<li{% block nav-index %}
 					{% endblock %}>
-					<a href = "{% url 'index' %}">HOME</a></li>
+					<a href = "{% url 'index2' %}">HOME</a></li>
 					<li{% block nav-view %}
 					{% endblock %}>
-					<a href = "{% url 'view' %}">VIEW</a></li>
+					<a href = "{% url 'view' %}">VIEW ONLINE STOCK</a></li>
 					<li{% block nav-add %}
 					{% endblock %}>
-					<a href = "{% url 'add' %}">ADD</a></li>
-					<li{% block nav-contacts %}
+					<a href = "{% url 'add' %}">ADD ONLINE STOCK</a></li>
+					<li{% block nav-viewofflinestock %}
 					{% endblock %}>
-					<a href = "{% url 'contact_us' %}">ABOUT US</a></li>
+					<a href = "{% url 'view_offline_stock' %}">VIEW OFFLINE STOCK</a></li>
+					<li{% block nav-addofflinestock %}
+					{% endblock %}>
+					<a href = "{% url 'add_offline_stock' %}">ADD OFFLINE STOCK</a></li>
+					
+					<li{% block nav-status %}
+					{% endblock %}>
+					<a href = "{% url 'contact_us' %}">STATUS</a></li>
 					<li>
-						<div class="offset5">
-					<a class="brand" href = "{% url 'adminpage' %}">superadmin</a></div></li>
+						<div class="">
+							<a class="brand" href = "{% url 'adminpage' %}">admin</a>
+						</div>
+					</li>
 					<li>
 						<div>
-							<a class="brand" href = "{% url 'logout' %}">logout</a>
+							<a class="brand" href = "{% url 'logout' %}"><i class="icon-off"></i></a>
 						</div>
 					</li>
 				</ul>
@@ -67,6 +87,14 @@
 				{% block for_edit %}
 				{% endblock %}
 				{% block for_notadd %}
+				{% endblock %}
+				{% block for_addofflinestock %}
+				{% endblock %}
+				{% block for_viewofflinestock %}
+				{% endblock %}
+				{% block for_contacts %}
+				{% endblock %}
+				{% block for_inuse %}
 				{% endblock %}
 
 			</div>

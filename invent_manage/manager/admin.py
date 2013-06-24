@@ -6,10 +6,15 @@ class PollAdmin(admin.ModelAdmin):
     (None,	{'fields':['uid']}),
     (None,	{'fields':['asset_code']}),
     (None,	{'fields':['asset_category']}),
-    (None,	{'fields':['state']}),
-    (None,	{'fields':['hub']}),
+    (None,	{'fields':['region']}),
+    (None,	{'fields':['unit']}),
     (None,	{'fields':['location']}),
-    (None,	{'fields':['username']}),
+    (None,  {'fields':['floor']}),
+    (None,  {'fields':['username']}),
+    (None,  {'fields':['empcode']}),
+    (None,  {'fields':['designation']}),
+    (None,  {'fields':['department']}),
+    (None,	{'fields':['machinename']}),
     (None,	{'fields':['role']}),
     (None,	{'fields':['model_name']}),
     (None,	{'fields':['s_no']}),
@@ -23,8 +28,9 @@ class PollAdmin(admin.ModelAdmin):
     (None,	{'fields':['warr_exp_date']}),
     (None,	{'fields':['company']}),
     (None,	{'fields':['po_details']}),
+    (None,  {'fields':['working']}),
     ]
-    list_display = ('uid', 'asset_code','asset_category','state','hub','location','username','role','model_name','s_no','processor','hdd','ram','os','warr_amc','warr_vend','warr_start_date','warr_exp_date','company','po_details')
-    search_fields = ['username']
+    list_display = ('id','uid', 'asset_code','asset_category','region','unit','location','floor','username','empcode','designation','department','machinename','role','model_name','s_no','processor','hdd','ram','os','warr_amc','warr_vend','warr_start_date','warr_exp_date','company','po_details','working','ram_change_date','hdd_change_date')
+    search_fields = ['machinename']
 
 admin.site.register(Poll, PollAdmin)
