@@ -23,4 +23,6 @@ urlpatterns = patterns('',
     url(r'^handle_offline_edit/$', views.handle_offline_edit, name='handle_offline_edit'),
     url(r'^expoffline/$', views.expoffline, name='expoffline'),
     url(r'^expfull/$', views.expfull, name='expfull'),
+    url(r'^search/$', views.search, name='search'),
+    url(r'^searchoffline/$', views.searchoffline, name='searchoffline'),
 )   
