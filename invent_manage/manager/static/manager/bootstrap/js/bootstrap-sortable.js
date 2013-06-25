@@ -1,584 +1,89 @@
-  
-
-
-<!DOCTYPE html>
-<html>
-  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# githubog: http://ogp.me/ns/fb/githubog#">
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>bootstrap-sortable/Scripts/bootstrap-sortable.js at master · drvic10k/bootstrap-sortable · GitHub</title>
-    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
-    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
-    <link rel="logo" type="image/svg" href="http://github-media-downloads.s3.amazonaws.com/github-logo.svg" />
-    <link rel="assets" href="https://a248.e.akamai.net/assets.github.com/">
-    <link rel="xhr-socket" href="/_sockets" />
-    
-
-
-    <meta name="msapplication-TileImage" content="/windows-tile.png" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="selected-link" value="repo_source" data-pjax-transient />
-    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" />
-
-    
-    
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <meta content="authenticity_token" name="csrf-param" />
-<meta content="skEJ0m4qxBB9RX/bEMUlxW5Uf+ayHr7ItN6xq6Yijlw=" name="csrf-token" />
-
-    <link href="https://a248.e.akamai.net/assets.github.com/assets/github-7bd58f561e043e3f5ff1dd3f57f18b73398fc10c.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="https://a248.e.akamai.net/assets.github.com/assets/github2-69d2c2a7108294a10da9659f618a66336ea17053.css" media="all" rel="stylesheet" type="text/css" />
-    
-
-
-      <script src="https://a248.e.akamai.net/assets.github.com/assets/frameworks-4c434fa1705bf526e191eec0cd8fab1a5ce3e326.js" type="text/javascript"></script>
-      <script src="https://a248.e.akamai.net/assets.github.com/assets/github-5e72c8897c5b4f51f6829429a2f0045853a2cf36.js" type="text/javascript"></script>
-      
-      <meta http-equiv="x-pjax-version" content="f646f8aa8bf3cfc9d6c820bfea6bf458">
-
-        <link data-pjax-transient rel='permalink' href='/drvic10k/bootstrap-sortable/blob/b7769601252f6f1f5d7fda1ebfd35792a647cd92/Scripts/bootstrap-sortable.js'>
-    <meta property="og:title" content="bootstrap-sortable"/>
-    <meta property="og:type" content="githubog:gitrepository"/>
-    <meta property="og:url" content="https://github.com/drvic10k/bootstrap-sortable"/>
-    <meta property="og:image" content="https://secure.gravatar.com/avatar/0a23a9e8b00771461a441f4d38faa08d?s=420&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"/>
-    <meta property="og:site_name" content="GitHub"/>
-    <meta property="og:description" content="bootstrap-sortable - adding sorting ability to bootstrap table"/>
-    <meta property="twitter:card" content="summary"/>
-    <meta property="twitter:site" content="@GitHub">
-    <meta property="twitter:title" content="drvic10k/bootstrap-sortable"/>
-
-    <meta name="description" content="bootstrap-sortable - adding sorting ability to bootstrap table" />
-
-
-    <meta content="3754571" name="octolytics-dimension-user_id" /><meta content="drvic10k" name="octolytics-dimension-user_login" /><meta content="8534533" name="octolytics-dimension-repository_id" /><meta content="drvic10k/bootstrap-sortable" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="8534533" name="octolytics-dimension-repository_network_root_id" /><meta content="drvic10k/bootstrap-sortable" name="octolytics-dimension-repository_network_root_nwo" />
-  <link href="https://github.com/drvic10k/bootstrap-sortable/commits/master.atom" rel="alternate" title="Recent Commits to bootstrap-sortable:master" type="application/atom+xml" />
-
-  </head>
-
-
-  <body class="logged_out page-blob windows vis-public env-production  ">
-    <div id="wrapper">
-
-      
-      
-      
-
-      
-      <div class="header header-logged-out">
-  <div class="container clearfix">
-
-    <a class="header-logo-wordmark" href="https://github.com/">Github</a>
-
-    <div class="header-actions">
-      <a class="button primary" href="/signup">Sign up</a>
-      <a class="button" href="/login?return_to=%2Fdrvic10k%2Fbootstrap-sortable%2Fblob%2Fmaster%2FScripts%2Fbootstrap-sortable.js">Sign in</a>
-    </div>
-
-    <div class="command-bar js-command-bar  in-repository">
-
-
-      <ul class="top-nav">
-          <li class="explore"><a href="/explore">Explore</a></li>
-        <li class="features"><a href="/features">Features</a></li>
-          <li class="enterprise"><a href="http://enterprise.github.com/">Enterprise</a></li>
-          <li class="blog"><a href="/blog">Blog</a></li>
-      </ul>
-        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
-  <a href="/search/advanced" class="advanced-search-icon tooltipped downwards command-bar-search" id="advanced_search" title="Advanced search"><span class="octicon octicon-gear "></span></a>
-
-  <input type="text" data-hotkey="/ s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off"
-    
-      data-repo="drvic10k/bootstrap-sortable"
-      data-branch="master"
-      data-sha="c8a619b6bed4613e73a050190339d7fd6a7701f9"
-  >
-
-    <input type="hidden" name="nwo" value="drvic10k/bootstrap-sortable" />
-
-    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
-      <span class="minibutton select-menu-button js-menu-target">
-        <span class="js-select-button">This repository</span>
-      </span>
-
-      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
-        <div class="select-menu-modal">
-
-          <div class="select-menu-item js-navigation-item selected">
-            <span class="select-menu-item-icon octicon octicon-check"></span>
-            <input type="radio" class="js-search-this-repository" name="search_target" value="repository" checked="checked" />
-            <div class="select-menu-item-text js-select-button-text">This repository</div>
-          </div> <!-- /.select-menu-item -->
-
-          <div class="select-menu-item js-navigation-item">
-            <span class="select-menu-item-icon octicon octicon-check"></span>
-            <input type="radio" name="search_target" value="global" />
-            <div class="select-menu-item-text js-select-button-text">All repositories</div>
-          </div> <!-- /.select-menu-item -->
-
-        </div>
-      </div>
-    </div>
-
-  <span class="octicon help tooltipped downwards" title="Show command bar help">
-    <span class="octicon octicon-question"></span>
-  </span>
-
-
-  <input type="hidden" name="ref" value="cmdform">
-
-  <div class="divider-vertical"></div>
-
-</form>
-    </div>
-
-  </div>
-</div>
-
-
-      
-
-
-            <div class="site hfeed" itemscope itemtype="http://schema.org/WebPage">
-      <div class="hentry">
-        
-        <div class="pagehead repohead instapaper_ignore readability-menu ">
-          <div class="container">
-            <div class="title-actions-bar">
-              
-
-<ul class="pagehead-actions">
-
-
-
-    <li>
-      <a href="/login?return_to=%2Fdrvic10k%2Fbootstrap-sortable"
-        class="minibutton with-count js-toggler-target star-button entice tooltipped upwards"
-        title="You must be signed in to use this feature" rel="nofollow">
-        <span class="octicon octicon-star"></span>Star
-      </a>
-      <a class="social-count js-social-count" href="/drvic10k/bootstrap-sortable/stargazers">
-        18
-      </a>
-    </li>
-    <li>
-      <a href="/login?return_to=%2Fdrvic10k%2Fbootstrap-sortable"
-        class="minibutton with-count js-toggler-target fork-button entice tooltipped upwards"
-        title="You must be signed in to fork a repository" rel="nofollow">
-        <span class="octicon octicon-git-branch"></span>Fork
-      </a>
-      <a href="/drvic10k/bootstrap-sortable/network" class="social-count">
-        10
-      </a>
-    </li>
-</ul>
-
-              <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
-                <span class="repo-label"><span>public</span></span>
-                <span class="mega-octicon octicon-repo"></span>
-                <span class="author vcard">
-                  <a href="/drvic10k" class="url fn" itemprop="url" rel="author">
-                  <span itemprop="title">drvic10k</span>
-                  </a></span> /
-                <strong><a href="/drvic10k/bootstrap-sortable" class="js-current-repository">bootstrap-sortable</a></strong>
-              </h1>
-            </div>
-
-            
-  <ul class="tabs">
-    <li class="pulse-nav"><a href="/drvic10k/bootstrap-sortable/pulse" class="js-selected-navigation-item " data-selected-links="pulse /drvic10k/bootstrap-sortable/pulse" rel="nofollow"><span class="octicon octicon-pulse"></span></a></li>
-    <li><a href="/drvic10k/bootstrap-sortable" class="js-selected-navigation-item selected" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /drvic10k/bootstrap-sortable">Code</a></li>
-    <li><a href="/drvic10k/bootstrap-sortable/network" class="js-selected-navigation-item " data-selected-links="repo_network /drvic10k/bootstrap-sortable/network">Network</a></li>
-    <li><a href="/drvic10k/bootstrap-sortable/pulls" class="js-selected-navigation-item " data-selected-links="repo_pulls /drvic10k/bootstrap-sortable/pulls">Pull Requests <span class='counter'>0</span></a></li>
-
-      <li><a href="/drvic10k/bootstrap-sortable/issues" class="js-selected-navigation-item " data-selected-links="repo_issues /drvic10k/bootstrap-sortable/issues">Issues <span class='counter'>0</span></a></li>
-
-      <li><a href="/drvic10k/bootstrap-sortable/wiki" class="js-selected-navigation-item " data-selected-links="repo_wiki /drvic10k/bootstrap-sortable/wiki">Wiki</a></li>
-
-
-    <li><a href="/drvic10k/bootstrap-sortable/graphs" class="js-selected-navigation-item " data-selected-links="repo_graphs repo_contributors /drvic10k/bootstrap-sortable/graphs">Graphs</a></li>
-
-
-  </ul>
-  
-<div class="tabnav">
-
-  <span class="tabnav-right">
-    <ul class="tabnav-tabs">
-          <li><a href="/drvic10k/bootstrap-sortable/tags" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_tags /drvic10k/bootstrap-sortable/tags">Tags <span class="counter blank">0</span></a></li>
-    </ul>
-  </span>
-
-  <div class="tabnav-widget scope">
-
-
-    <div class="select-menu js-menu-container js-select-menu js-branch-menu">
-      <a class="minibutton select-menu-button js-menu-target" data-hotkey="w" data-ref="master">
-        <span class="octicon octicon-git-branch"></span>
-        <i>branch:</i>
-        <span class="js-select-button">master</span>
-      </a>
-
-      <div class="select-menu-modal-holder js-menu-content js-navigation-container">
-
-        <div class="select-menu-modal">
-          <div class="select-menu-header">
-            <span class="select-menu-title">Switch branches/tags</span>
-            <span class="octicon octicon-remove-close js-menu-close"></span>
-          </div> <!-- /.select-menu-header -->
-
-          <div class="select-menu-filters">
-            <div class="select-menu-text-filter">
-              <input type="text" id="commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
-            </div>
-            <div class="select-menu-tabs">
-              <ul>
-                <li class="select-menu-tab">
-                  <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
-                </li>
-                <li class="select-menu-tab">
-                  <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
-                </li>
-              </ul>
-            </div><!-- /.select-menu-tabs -->
-          </div><!-- /.select-menu-filters -->
-
-          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="branches">
-
-            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
-
-                <div class="select-menu-item js-navigation-item selected">
-                  <span class="select-menu-item-icon octicon octicon-check"></span>
-                  <a href="/drvic10k/bootstrap-sortable/blob/master/Scripts/bootstrap-sortable.js" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" data-name="master" rel="nofollow" title="master">master</a>
-                </div> <!-- /.select-menu-item -->
-            </div>
-
-              <div class="select-menu-no-results">Nothing to show</div>
-          </div> <!-- /.select-menu-list -->
-
-
-          <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket css-truncate" data-tab-filter="tags">
-            <div data-filterable-for="commitish-filter-field" data-filterable-type="substring">
-
-            </div>
-
-            <div class="select-menu-no-results">Nothing to show</div>
-
-          </div> <!-- /.select-menu-list -->
-
-        </div> <!-- /.select-menu-modal -->
-      </div> <!-- /.select-menu-modal-holder -->
-    </div> <!-- /.select-menu -->
-
-  </div> <!-- /.scope -->
-
-  <ul class="tabnav-tabs">
-    <li><a href="/drvic10k/bootstrap-sortable" class="selected js-selected-navigation-item tabnav-tab" data-selected-links="repo_source /drvic10k/bootstrap-sortable">Files</a></li>
-    <li><a href="/drvic10k/bootstrap-sortable/commits/master" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_commits /drvic10k/bootstrap-sortable/commits/master">Commits</a></li>
-    <li><a href="/drvic10k/bootstrap-sortable/branches" class="js-selected-navigation-item tabnav-tab" data-selected-links="repo_branches /drvic10k/bootstrap-sortable/branches" rel="nofollow">Branches <span class="counter ">1</span></a></li>
-  </ul>
-
-</div>
-
-  
-  
-  
-
-
-            
-          </div>
-        </div><!-- /.repohead -->
-
-        <div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container>
-          
-
-
-<!-- blob contrib key: blob_contributors:v21:f40045f1f2a74dc94314a37874534d47 -->
-<!-- blob contrib frag key: views10/v8/blob_contributors:v21:f40045f1f2a74dc94314a37874534d47 -->
-
-
-<div id="slider">
-    <div class="frame-meta">
-
-      <p title="This is a placeholder element" class="js-history-link-replace hidden"></p>
-
-        <div class="breadcrumb">
-          <span class='bold'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/drvic10k/bootstrap-sortable" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">bootstrap-sortable</span></a></span></span><span class="separator"> / </span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/drvic10k/bootstrap-sortable/tree/master/Scripts" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">Scripts</span></a></span><span class="separator"> / </span><strong class="final-path">bootstrap-sortable.js</strong> <span class="js-zeroclipboard zeroclipboard-button" data-clipboard-text="Scripts/bootstrap-sortable.js" data-copied-hint="copied!" title="copy to clipboard"><span class="octicon octicon-clippy"></span></span>
-        </div>
-
-      <a href="/drvic10k/bootstrap-sortable/find/master" class="js-slide-to" data-hotkey="t" style="display:none">Show File Finder</a>
-
-
-        
-  <div class="commit file-history-tease">
-    <img class="main-avatar" height="24" src="https://secure.gravatar.com/avatar/0a23a9e8b00771461a441f4d38faa08d?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" />
-    <span class="author"><a href="/drvic10k" rel="author">drvic10k</a></span>
-    <time class="js-relative-date" datetime="2013-06-16T14:10:38-07:00" title="2013-06-16 14:10:38">June 16, 2013</time>
-    <div class="commit-title">
-        <a href="/drvic10k/bootstrap-sortable/commit/b7769601252f6f1f5d7fda1ebfd35792a647cd92" class="message">Preserve sorting, when you modify the table</a>
-    </div>
-
-    <div class="participation">
-      <p class="quickstat"><a href="#blob_contributors_box" rel="facebox"><strong>1</strong> contributor</a></p>
-      
-    </div>
-    <div id="blob_contributors_box" style="display:none">
-      <h2 class="facebox-header">Users who have contributed to this file</h2>
-      <ul class="facebox-user-list">
-        <li class="facebox-user-list-item">
-          <img height="24" src="https://secure.gravatar.com/avatar/0a23a9e8b00771461a441f4d38faa08d?s=140&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="24" />
-          <a href="/drvic10k">drvic10k</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-
-    </div><!-- ./.frame-meta -->
-
-    <div class="frames">
-      <div class="frame" data-permalink-url="/drvic10k/bootstrap-sortable/blob/b7769601252f6f1f5d7fda1ebfd35792a647cd92/Scripts/bootstrap-sortable.js" data-title="bootstrap-sortable/Scripts/bootstrap-sortable.js at master · drvic10k/bootstrap-sortable · GitHub" data-type="blob">
-
-        <div id="files" class="bubble">
-          <div class="file">
-            <div class="meta">
-              <div class="info">
-                <span class="icon"><b class="octicon octicon-file-text"></b></span>
-                <span class="mode" title="File Mode">file</span>
-                  <span>79 lines (68 sloc)</span>
-                <span>6.448 kb</span>
-              </div>
-              <div class="actions">
-                <div class="button-group">
-                      <a class="minibutton js-entice" href=""
-                         data-entice="You must be signed in and on a branch to make or propose changes">Edit</a>
-                  <a href="/drvic10k/bootstrap-sortable/raw/master/Scripts/bootstrap-sortable.js" class="button minibutton " id="raw-url">Raw</a>
-                    <a href="/drvic10k/bootstrap-sortable/blame/master/Scripts/bootstrap-sortable.js" class="button minibutton ">Blame</a>
-                  <a href="/drvic10k/bootstrap-sortable/commits/master/Scripts/bootstrap-sortable.js" class="button minibutton " rel="nofollow">History</a>
-                </div><!-- /.button-group -->
-              </div><!-- /.actions -->
-
-            </div>
-                <div class="blob-wrapper data type-javascript js-blob-data">
-      <table class="file-code file-diff">
-        <tr class="file-code-line">
-          <td class="blob-line-nums">
-            <span id="L1" rel="#L1">1</span>
-<span id="L2" rel="#L2">2</span>
-<span id="L3" rel="#L3">3</span>
-<span id="L4" rel="#L4">4</span>
-<span id="L5" rel="#L5">5</span>
-<span id="L6" rel="#L6">6</span>
-<span id="L7" rel="#L7">7</span>
-<span id="L8" rel="#L8">8</span>
-<span id="L9" rel="#L9">9</span>
-<span id="L10" rel="#L10">10</span>
-<span id="L11" rel="#L11">11</span>
-<span id="L12" rel="#L12">12</span>
-<span id="L13" rel="#L13">13</span>
-<span id="L14" rel="#L14">14</span>
-<span id="L15" rel="#L15">15</span>
-<span id="L16" rel="#L16">16</span>
-<span id="L17" rel="#L17">17</span>
-<span id="L18" rel="#L18">18</span>
-<span id="L19" rel="#L19">19</span>
-<span id="L20" rel="#L20">20</span>
-<span id="L21" rel="#L21">21</span>
-<span id="L22" rel="#L22">22</span>
-<span id="L23" rel="#L23">23</span>
-<span id="L24" rel="#L24">24</span>
-<span id="L25" rel="#L25">25</span>
-<span id="L26" rel="#L26">26</span>
-<span id="L27" rel="#L27">27</span>
-<span id="L28" rel="#L28">28</span>
-<span id="L29" rel="#L29">29</span>
-<span id="L30" rel="#L30">30</span>
-<span id="L31" rel="#L31">31</span>
-<span id="L32" rel="#L32">32</span>
-<span id="L33" rel="#L33">33</span>
-<span id="L34" rel="#L34">34</span>
-<span id="L35" rel="#L35">35</span>
-<span id="L36" rel="#L36">36</span>
-<span id="L37" rel="#L37">37</span>
-<span id="L38" rel="#L38">38</span>
-<span id="L39" rel="#L39">39</span>
-<span id="L40" rel="#L40">40</span>
-<span id="L41" rel="#L41">41</span>
-<span id="L42" rel="#L42">42</span>
-<span id="L43" rel="#L43">43</span>
-<span id="L44" rel="#L44">44</span>
-<span id="L45" rel="#L45">45</span>
-<span id="L46" rel="#L46">46</span>
-<span id="L47" rel="#L47">47</span>
-<span id="L48" rel="#L48">48</span>
-<span id="L49" rel="#L49">49</span>
-<span id="L50" rel="#L50">50</span>
-<span id="L51" rel="#L51">51</span>
-<span id="L52" rel="#L52">52</span>
-<span id="L53" rel="#L53">53</span>
-<span id="L54" rel="#L54">54</span>
-<span id="L55" rel="#L55">55</span>
-<span id="L56" rel="#L56">56</span>
-<span id="L57" rel="#L57">57</span>
-<span id="L58" rel="#L58">58</span>
-<span id="L59" rel="#L59">59</span>
-<span id="L60" rel="#L60">60</span>
-<span id="L61" rel="#L61">61</span>
-<span id="L62" rel="#L62">62</span>
-<span id="L63" rel="#L63">63</span>
-<span id="L64" rel="#L64">64</span>
-<span id="L65" rel="#L65">65</span>
-<span id="L66" rel="#L66">66</span>
-<span id="L67" rel="#L67">67</span>
-<span id="L68" rel="#L68">68</span>
-<span id="L69" rel="#L69">69</span>
-<span id="L70" rel="#L70">70</span>
-<span id="L71" rel="#L71">71</span>
-<span id="L72" rel="#L72">72</span>
-<span id="L73" rel="#L73">73</span>
-<span id="L74" rel="#L74">74</span>
-<span id="L75" rel="#L75">75</span>
-<span id="L76" rel="#L76">76</span>
-<span id="L77" rel="#L77">77</span>
-<span id="L78" rel="#L78">78</span>
-
-          </td>
-          <td class="blob-line-code">
-                  <div class="highlight"><pre><div class='line' id='LC1'><span class="cm">/* TINY SORT modified according to this https://github.com/Sjeiti/TinySort/pull/51*/</span></div><div class='line' id='LC2'><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="kd">function</span> <span class="nx">h</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">e</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">toLowerCase</span> <span class="o">?</span> <span class="nx">e</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">:</span> <span class="nx">e</span> <span class="p">}</span> <span class="kd">function</span> <span class="nx">p</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">r</span> <span class="o">&lt;</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">r</span><span class="o">++</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span> <span class="o">==</span> <span class="nx">t</span><span class="p">)</span> <span class="k">return</span> <span class="o">!</span><span class="nx">n</span><span class="p">;</span> <span class="k">return</span> <span class="nx">n</span> <span class="p">}</span> <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="o">!</span><span class="mi">1</span><span class="p">,</span> <span class="nx">r</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">i</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">,</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">,</span> <span class="nx">o</span> <span class="o">=</span> <span class="sr">/(-?\d+\.?\d*)$/g</span><span class="p">,</span> <span class="nx">u</span> <span class="o">=</span> <span class="sr">/(\d+\.?\d*)$/g</span><span class="p">,</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">f</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">l</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="k">typeof</span> <span class="nx">e</span> <span class="o">==</span> <span class="s2">&quot;string&quot;</span> <span class="p">},</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">||</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span> <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">n</span> <span class="o">+=</span> <span class="nx">t</span><span class="p">;</span> <span class="k">for</span> <span class="p">(;</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">t</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="k">in</span> <span class="k">this</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">===</span> <span class="nx">e</span><span class="p">)</span> <span class="k">return</span> <span class="nx">n</span> <span class="p">}</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="p">};</span> <span class="nx">e</span><span class="p">.</span><span class="nx">tinysort</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;TinySort&quot;</span><span class="p">,</span> <span class="nx">version</span><span class="o">:</span> <span class="s2">&quot;1.5.2&quot;</span><span class="p">,</span> <span class="nx">copyright</span><span class="o">:</span> <span class="s2">&quot;Copyright (c) 2008-2013 Ron Valstar&quot;</span><span class="p">,</span> <span class="nx">uri</span><span class="o">:</span> <span class="s2">&quot;http://tinysort.sjeiti.com/&quot;</span><span class="p">,</span> <span class="nx">licensed</span><span class="o">:</span> <span class="p">{</span> <span class="nx">MIT</span><span class="o">:</span> <span class="s2">&quot;http://www.opensource.org/licenses/mit-license.php&quot;</span><span class="p">,</span> <span class="nx">GPL</span><span class="o">:</span> <span class="s2">&quot;http://www.gnu.org/licenses/gpl.html&quot;</span> <span class="p">},</span> <span class="nx">plugin</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="nx">a</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span> <span class="nx">f</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">};</span> <span class="nx">e</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">=</span> <span class="nx">c</span><span class="p">;</span> <span class="k">return</span> <span class="nx">e</span> <span class="p">}(),</span> <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span> <span class="nx">order</span><span class="o">:</span> <span class="s2">&quot;asc&quot;</span><span class="p">,</span> <span class="nx">attr</span><span class="o">:</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">useVal</span><span class="o">:</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">place</span><span class="o">:</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="nx">returns</span><span class="o">:</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">cases</span><span class="o">:</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">forceStrings</span><span class="o">:</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">ignoreDashes</span><span class="o">:</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">sortFunction</span><span class="o">:</span> <span class="nx">r</span> <span class="p">}</span> <span class="p">};</span> <span class="nx">e</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span> <span class="nx">tinysort</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span> <span class="nx">g</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">w</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">E</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">S</span><span class="p">,</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">T</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">N</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="nx">e</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span> <span class="nx">n</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">})</span> <span class="p">},</span> <span class="nx">C</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nx">E</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">E</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">while</span> <span class="p">(</span><span class="nx">s</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">E</span> <span class="o">&lt;</span> <span class="nx">S</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">E</span><span class="p">],</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">oSettings</span><span class="p">,</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">ignoreDashes</span> <span class="o">?</span> <span class="nx">u</span> <span class="o">:</span> <span class="nx">o</span><span class="p">;</span> <span class="nx">N</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span> <span class="k">if</span> <span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">sortFunction</span><span class="p">)</span> <span class="p">{</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">sortFunction</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">order</span> <span class="o">==</span> <span class="s2">&quot;rand&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="p">.</span><span class="mi">5</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">v</span> <span class="o">=</span> <span class="o">!</span><span class="nx">c</span><span class="p">.</span><span class="nx">cases</span> <span class="o">?</span> <span class="nx">h</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">E</span><span class="p">])</span> <span class="o">:</span> <span class="nx">t</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">E</span><span class="p">],</span> <span class="nx">m</span> <span class="o">=</span> <span class="o">!</span><span class="nx">c</span><span class="p">.</span><span class="nx">cases</span> <span class="o">?</span> <span class="nx">h</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">E</span><span class="p">])</span> <span class="o">:</span> <span class="nx">r</span><span class="p">.</span><span class="nx">s</span><span class="p">[</span><span class="nx">E</span><span class="p">];</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">v</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^\s*/i</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s*$/i</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span> <span class="nx">m</span> <span class="o">=</span> <span class="nx">m</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^\s*/i</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s*$/i</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">A</span><span class="p">.</span><span class="nx">forceStrings</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">l</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">?</span> <span class="nx">v</span> <span class="o">&amp;&amp;</span> <span class="nx">v</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span> <span class="o">:</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">l</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="o">?</span> <span class="nx">m</span> <span class="o">&amp;&amp;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span> <span class="o">:</span> <span class="nx">n</span><span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nx">g</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">v</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">v</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">g</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">),</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">m</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">m</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">y</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">);</span> <span class="k">if</span> <span class="p">(</span><span class="nx">b</span> <span class="o">==</span> <span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="nx">d</span> <span class="o">=</span> <span class="o">!</span><span class="nx">n</span><span class="p">;</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">i</span><span class="p">(</span><span class="nx">g</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="nx">m</span> <span class="o">=</span> <span class="nx">i</span><span class="p">(</span><span class="nx">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">iAsc</span> <span class="o">*</span> <span class="p">(</span><span class="nx">v</span> <span class="o">&lt;</span> <span class="nx">m</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="nx">v</span> <span class="o">&gt;</span> <span class="nx">m</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">)</span> <span class="p">}</span> <span class="nx">e</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span> <span class="p">});</span> <span class="k">if</span> <span class="p">(</span><span class="nx">s</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">E</span><span class="o">++</span> <span class="p">}</span> <span class="k">return</span> <span class="nx">s</span> <span class="p">};</span> <span class="k">for</span> <span class="p">(</span><span class="nx">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">d</span> <span class="o">&lt;</span> <span class="nx">v</span><span class="p">;</span> <span class="nx">d</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">d</span><span class="p">];</span> <span class="k">if</span> <span class="p">(</span><span class="nx">l</span><span class="p">(</span><span class="nx">k</span><span class="p">))</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="nx">T</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="nx">T</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="nx">T</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">x</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="nx">x</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">T</span><span class="p">.</span><span class="nx">length</span> <span class="p">}</span> <span class="p">}</span> <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">T</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="nx">T</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nx">S</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">T</span><span class="p">.</span><span class="nx">push</span><span class="p">({})</span> <span class="p">}</span> <span class="k">for</span> <span class="p">(</span><span class="nx">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">S</span><span class="p">;</span> <span class="nx">d</span> <span class="o">&lt;</span> <span class="nx">v</span><span class="p">;</span> <span class="nx">d</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">L</span> <span class="o">=</span> <span class="nx">x</span><span class="p">[</span><span class="nx">d</span><span class="p">],</span> <span class="nx">A</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">e</span><span class="p">.</span><span class="nx">tinysort</span><span class="p">.</span><span class="nx">defaults</span><span class="p">,</span> <span class="nx">T</span><span class="p">[</span><span class="nx">d</span><span class="p">]),</span> <span class="nx">O</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="o">!</span><span class="nx">L</span> <span class="o">||</span> <span class="nx">L</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="nx">M</span> <span class="o">=</span> <span class="nx">O</span> <span class="o">&amp;&amp;</span> <span class="nx">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;:&quot;</span><span class="p">;</span> <span class="nx">w</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">sFind</span><span class="o">:</span> <span class="nx">L</span><span class="p">,</span> <span class="nx">oSettings</span><span class="o">:</span> <span class="nx">A</span><span class="p">,</span> <span class="nx">bFind</span><span class="o">:</span> <span class="nx">O</span><span class="p">,</span> <span class="nx">bAttr</span><span class="o">:</span> <span class="o">!</span><span class="p">(</span><span class="nx">A</span><span class="p">.</span><span class="nx">attr</span> <span class="o">===</span> <span class="nx">r</span> <span class="o">||</span> <span class="nx">A</span><span class="p">.</span><span class="nx">attr</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="nx">bData</span><span class="o">:</span> <span class="nx">A</span><span class="p">.</span><span class="nx">data</span> <span class="o">!==</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">bFilter</span><span class="o">:</span> <span class="nx">M</span><span class="p">,</span> <span class="nx">$Filter</span><span class="o">:</span> <span class="nx">M</span> <span class="o">?</span> <span class="nx">m</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">L</span><span class="p">)</span> <span class="o">:</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">fnSort</span><span class="o">:</span> <span class="nx">A</span><span class="p">.</span><span class="nx">sortFunction</span><span class="p">,</span> <span class="nx">iAsc</span><span class="o">:</span> <span class="nx">A</span><span class="p">.</span><span class="nx">order</span> <span class="o">==</span> <span class="s2">&quot;asc&quot;</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">})</span> <span class="p">}</span> <span class="nx">m</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">e</span><span class="p">(</span><span class="nx">r</span><span class="p">),</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">i</span><span class="p">.</span><span class="nx">parent</span><span class="p">().</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nx">o</span><span class="p">,</span> <span class="nx">u</span> <span class="o">=</span> <span class="p">[];</span> <span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">S</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">w</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">bFind</span> <span class="o">?</span> <span class="nx">a</span><span class="p">.</span><span class="nx">bFilter</span> <span class="o">?</span> <span class="nx">a</span><span class="p">.</span><span class="nx">$Filter</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="o">:</span> <span class="nx">i</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">sFind</span><span class="p">)</span> <span class="o">:</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">u</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">bData</span> <span class="o">?</span> <span class="nx">f</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">oSettings</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="o">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">bAttr</span> <span class="o">?</span> <span class="nx">f</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">oSettings</span><span class="p">.</span><span class="nx">attr</span><span class="p">)</span> <span class="o">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">oSettings</span><span class="p">.</span><span class="nx">useVal</span> <span class="o">?</span> <span class="nx">f</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="o">:</span> <span class="nx">f</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span> <span class="k">if</span> <span class="p">(</span><span class="nx">o</span> <span class="o">===</span> <span class="nx">t</span><span class="p">)</span> <span class="nx">o</span> <span class="o">=</span> <span class="nx">f</span> <span class="p">}</span> <span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span> <span class="k">if</span> <span class="p">(</span><span class="nx">l</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="nx">l</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">y</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">s</span><span class="o">:</span> <span class="p">[],</span> <span class="nx">n</span><span class="o">:</span> <span class="p">[]</span> <span class="p">}</span> <span class="p">}</span> <span class="k">if</span> <span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">y</span><span class="p">[</span><span class="nx">l</span><span class="p">].</span><span class="nx">s</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">s</span><span class="o">:</span> <span class="nx">u</span><span class="p">,</span> <span class="nx">e</span><span class="o">:</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">n</span><span class="o">:</span> <span class="nx">n</span> <span class="p">});</span> <span class="k">else</span> <span class="nx">y</span><span class="p">[</span><span class="nx">l</span><span class="p">].</span><span class="nx">n</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">e</span><span class="o">:</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">n</span><span class="o">:</span> <span class="nx">n</span> <span class="p">})</span> <span class="p">});</span> <span class="nx">e</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="nx">t</span><span class="p">.</span><span class="nx">s</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">C</span><span class="p">)</span> <span class="p">});</span> <span class="nx">e</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">u</span> <span class="o">=</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span> <span class="k">switch</span> <span class="p">(</span><span class="nx">A</span><span class="p">.</span><span class="nx">place</span><span class="p">)</span> <span class="p">{</span> <span class="k">case</span> <span class="s2">&quot;first&quot;</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">s</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="nx">u</span> <span class="o">=</span> <span class="nx">s</span><span class="p">(</span><span class="nx">u</span><span class="p">,</span> <span class="nx">t</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span> <span class="p">});</span> <span class="k">break</span><span class="p">;</span> <span class="k">case</span> <span class="s2">&quot;org&quot;</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">s</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="nx">o</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span> <span class="p">});</span> <span class="k">break</span><span class="p">;</span> <span class="k">case</span> <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="nx">u</span> <span class="o">=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">n</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span> <span class="k">default</span><span class="o">:</span> <span class="nx">u</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span> <span class="k">for</span> <span class="p">(</span><span class="nx">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">d</span> <span class="o">&lt;</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">d</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">p</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span> <span class="nx">d</span><span class="p">)</span> <span class="o">?</span> <span class="o">!</span><span class="nx">n</span> <span class="o">:</span> <span class="nx">d</span> <span class="o">&gt;=</span> <span class="nx">u</span> <span class="o">&amp;&amp;</span> <span class="nx">d</span> <span class="o">&lt;</span> <span class="nx">u</span> <span class="o">+</span> <span class="nx">r</span><span class="p">.</span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">l</span> <span class="o">=</span> <span class="p">(</span><span class="nx">f</span> <span class="o">?</span> <span class="nx">r</span><span class="p">.</span><span class="nx">s</span> <span class="o">:</span> <span class="nx">r</span><span class="p">.</span><span class="nx">n</span><span class="p">)[</span><span class="nx">a</span><span class="p">[</span><span class="nx">f</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="mi">1</span><span class="p">]].</span><span class="nx">e</span><span class="p">;</span> <span class="nx">l</span><span class="p">.</span><span class="nx">parent</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="nx">l</span><span class="p">);</span> <span class="k">if</span> <span class="p">(</span><span class="nx">f</span> <span class="o">||</span> <span class="o">!</span><span class="nx">A</span><span class="p">.</span><span class="nx">returns</span><span class="p">)</span> <span class="nx">g</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">l</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span> <span class="nx">a</span><span class="p">[</span><span class="nx">f</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="mi">1</span><span class="p">]</span><span class="o">++</span> <span class="p">}</span> <span class="p">});</span> <span class="nx">m</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">g</span><span class="p">);</span> <span class="k">return</span> <span class="nx">m</span> <span class="p">}</span> <span class="p">});</span> <span class="nx">e</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">TinySort</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">Tinysort</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">tsort</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">tinysort</span> <span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span></div><div class='line' id='LC3'><br/></div><div class='line' id='LC4'><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC5'><br/></div><div class='line' id='LC6'>	<span class="kd">var</span> <span class="nx">$document</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">),</span></div><div class='line' id='LC7'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nx">bsSort</span> <span class="o">=</span> <span class="p">[],</span></div><div class='line' id='LC8'>&nbsp;&nbsp;&nbsp;&nbsp;	<span class="nx">lastSort</span><span class="p">;</span></div><div class='line' id='LC9'><br/></div><div class='line' id='LC10'>	<span class="nx">$</span><span class="p">.</span><span class="nx">bootstrapSortable</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">applyLast</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC11'>		<span class="c1">// set attributes needed for sorting</span></div><div class='line' id='LC12'>		<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;table.sortable&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span></div><div class='line' id='LC13'>			<span class="kd">var</span> <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span></div><div class='line' id='LC14'>			<span class="nx">applyLast</span> <span class="o">=</span> <span class="p">(</span><span class="nx">applyLast</span> <span class="o">===</span> <span class="kc">true</span><span class="p">);</span></div><div class='line' id='LC15'>			<span class="nx">$this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;span.arrow&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span></div><div class='line' id='LC16'>			<span class="nx">$this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;thead th&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC17'>				<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-sortkey&#39;</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span></div><div class='line' id='LC18'>			<span class="p">});</span></div><div class='line' id='LC19'>			<span class="nx">$this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;th,td&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span></div><div class='line' id='LC20'>				<span class="kd">var</span> <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span></div><div class='line' id='LC21'>				<span class="nx">$this</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-value&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">$this</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-value&#39;</span><span class="p">,</span> <span class="nx">$this</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span></div><div class='line' id='LC22'>			<span class="p">});</span></div><div class='line' id='LC23'>			<span class="nx">$this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;thead th&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC24'>				<span class="kd">var</span> <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span></div><div class='line' id='LC25'>				<span class="nx">lastSort</span> <span class="o">=</span> <span class="nx">applyLast</span> <span class="o">?</span> <span class="nx">lastSort</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span></div><div class='line' id='LC26'>				<span class="nx">bsSort</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">=</span> <span class="nx">applyLast</span> <span class="o">?</span> <span class="nx">bsSort</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">:</span> <span class="nx">$this</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-defaultsort&#39;</span><span class="p">);</span></div><div class='line' id='LC27'>				<span class="k">if</span> <span class="p">(</span><span class="nx">bsSort</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">applyLast</span> <span class="o">==</span> <span class="p">(</span><span class="nx">index</span> <span class="o">==</span> <span class="nx">lastSort</span><span class="p">)))</span> <span class="p">{</span></div><div class='line' id='LC28'>					<span class="nx">bsSort</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">=</span> <span class="nx">bsSort</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;asc&#39;</span> <span class="o">?</span> <span class="s1">&#39;desc&#39;</span> <span class="o">:</span> <span class="s1">&#39;asc&#39;</span><span class="p">;</span></div><div class='line' id='LC29'>					<span class="nx">$this</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span></div><div class='line' id='LC30'>				<span class="p">}</span></div><div class='line' id='LC31'>			<span class="p">});</span></div><div class='line' id='LC32'>		<span class="p">});</span></div><div class='line' id='LC33'>	<span class="p">};</span></div><div class='line' id='LC34'><br/></div><div class='line' id='LC35'>	<span class="c1">// add click event to table header</span></div><div class='line' id='LC36'>	<span class="nx">$document</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="s1">&#39;table.sortable thead th&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC37'>		<span class="kd">var</span> <span class="nx">$this</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">),</span> <span class="nx">$table</span> <span class="o">=</span> <span class="nx">$this</span><span class="p">.</span><span class="nx">parents</span><span class="p">(</span><span class="s1">&#39;table.sortable&#39;</span><span class="p">);</span></div><div class='line' id='LC38'><br/></div><div class='line' id='LC39'>		<span class="c1">// update arrow icon</span></div><div class='line' id='LC40'>		<span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">mozilla</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC41'>			<span class="kd">var</span> <span class="nx">moz_arrow</span> <span class="o">=</span> <span class="nx">$table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;div.mozilla&#39;</span><span class="p">);</span></div><div class='line' id='LC42'>			<span class="k">if</span> <span class="p">(</span><span class="nx">moz_arrow</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC43'>				<span class="nx">moz_arrow</span><span class="p">.</span><span class="nx">parent</span><span class="p">().</span><span class="nx">html</span><span class="p">(</span><span class="nx">moz_arrow</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span></div><div class='line' id='LC44'>			<span class="p">}</span></div><div class='line' id='LC45'>			<span class="nx">$this</span><span class="p">.</span><span class="nx">wrapInner</span><span class="p">(</span><span class="s1">&#39;&lt;div class=&quot;mozilla&quot;&gt;&lt;/div&gt;&#39;</span><span class="p">);</span></div><div class='line' id='LC46'>			<span class="nx">$this</span><span class="p">.</span><span class="nx">children</span><span class="p">().</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;span class=&quot;arrow&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">);</span></div><div class='line' id='LC47'>		<span class="p">}</span></div><div class='line' id='LC48'>		<span class="k">else</span> <span class="p">{</span></div><div class='line' id='LC49'>			<span class="nx">$table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;span.arrow&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span></div><div class='line' id='LC50'>			<span class="nx">$this</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;span class=&quot;arrow&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">);</span></div><div class='line' id='LC51'>		<span class="p">}</span></div><div class='line' id='LC52'><br/></div><div class='line' id='LC53'>		<span class="c1">// sort direction</span></div><div class='line' id='LC54'>		<span class="kd">var</span> <span class="nx">nr</span> <span class="o">=</span> <span class="nx">$this</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-sortkey&#39;</span><span class="p">);</span></div><div class='line' id='LC55'>		<span class="nx">lastSort</span> <span class="o">=</span> <span class="nx">nr</span><span class="p">;</span></div><div class='line' id='LC56'>		<span class="nx">bsSort</span><span class="p">[</span><span class="nx">nr</span><span class="p">]</span> <span class="o">=</span> <span class="nx">bsSort</span><span class="p">[</span><span class="nx">nr</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;asc&#39;</span> <span class="o">?</span> <span class="s1">&#39;desc&#39;</span> <span class="o">:</span> <span class="s1">&#39;asc&#39;</span><span class="p">;</span></div><div class='line' id='LC57'>		<span class="k">if</span> <span class="p">(</span><span class="nx">bsSort</span><span class="p">[</span><span class="nx">nr</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;desc&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="nx">$this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;span.arrow&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;up&#39;</span><span class="p">);</span> <span class="p">}</span></div><div class='line' id='LC58'><br/></div><div class='line' id='LC59'>		<span class="c1">// sort rows</span></div><div class='line' id='LC60'>		<span class="kd">var</span> <span class="nx">rows</span> <span class="o">=</span> <span class="nx">$table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tbody tr&#39;</span><span class="p">);</span></div><div class='line' id='LC61'>		<span class="nx">rows</span><span class="p">.</span><span class="nx">tsort</span><span class="p">(</span><span class="s1">&#39;td:eq(&#39;</span> <span class="o">+</span> <span class="nx">nr</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">order</span><span class="o">:</span> <span class="nx">bsSort</span><span class="p">[</span><span class="nx">nr</span><span class="p">],</span> <span class="nx">attr</span><span class="o">:</span> <span class="s1">&#39;data-value&#39;</span> <span class="p">});</span></div><div class='line' id='LC62'>	<span class="p">});</span></div><div class='line' id='LC63'><br/></div><div class='line' id='LC64'>	<span class="c1">// jQuery 1.9 removed this object</span></div><div class='line' id='LC65'>	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">.</span><span class="nx">browser</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC66'>		<span class="nx">$</span><span class="p">.</span><span class="nx">browser</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">chrome</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">mozilla</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">opera</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">msie</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">safari</span><span class="o">:</span> <span class="kc">false</span> <span class="p">};</span></div><div class='line' id='LC67'>		<span class="kd">var</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">;</span></div><div class='line' id='LC68'>		<span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">browser</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span></div><div class='line' id='LC69'>			<span class="nx">$</span><span class="p">.</span><span class="nx">browser</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">).</span><span class="nx">test</span><span class="p">(</span><span class="nx">ua</span><span class="p">)))</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span></div><div class='line' id='LC70'>			<span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">mozilla</span> <span class="o">&amp;&amp;</span> <span class="nx">c</span> <span class="o">==</span> <span class="s1">&#39;mozilla&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="nx">$</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">mozilla</span> <span class="o">=</span> <span class="p">((</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">).</span><span class="nx">test</span><span class="p">(</span><span class="nx">ua</span><span class="p">)))</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span> <span class="p">};</span></div><div class='line' id='LC71'>			<span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">chrome</span> <span class="o">&amp;&amp;</span> <span class="nx">c</span> <span class="o">==</span> <span class="s1">&#39;safari&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="nx">$</span><span class="p">.</span><span class="nx">browser</span><span class="p">.</span><span class="nx">safari</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="p">};</span></div><div class='line' id='LC72'>		<span class="p">});</span></div><div class='line' id='LC73'>	<span class="p">};</span></div><div class='line' id='LC74'><br/></div><div class='line' id='LC75'>	<span class="c1">// Initialise on DOM ready</span></div><div class='line' id='LC76'>	<span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">bootstrapSortable</span><span class="p">);</span></div><div class='line' id='LC77'><br/></div><div class='line' id='LC78'><span class="p">}(</span><span class="nx">jQuery</span><span class="p">));</span></div></pre></div>
-          </td>
-        </tr>
-      </table>
-  </div>
-
-          </div>
-        </div>
-
-        <a href="#jump-to-line" rel="facebox[.linejump]" data-hotkey="l" class="js-jump-to-line" style="display:none">Jump to Line</a>
-        <div id="jump-to-line" style="display:none">
-          <form accept-charset="UTF-8" class="js-jump-to-line-form">
-            <input class="linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;">
-            <button type="submit" class="button">Go</button>
-          </form>
-        </div>
-
-      </div>
-    </div>
-</div>
-
-<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
-  <img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif" height="64" width="64">
-</div>
-
-
-        </div>
-      </div>
-      <div class="modal-backdrop"></div>
-    </div>
-
-      <div id="footer-push"></div><!-- hack for sticky footer -->
-    </div><!-- end of wrapper - hack for sticky footer -->
-
-      <!-- footer -->
-      <div id="footer">
-  <div class="container clearfix">
-
-      <dl class="footer_nav">
-        <dt>GitHub</dt>
-        <dd><a href="/about">About us</a></dd>
-        <dd><a href="/blog">Blog</a></dd>
-        <dd><a href="/contact">Contact &amp; support</a></dd>
-        <dd><a href="http://enterprise.github.com/">GitHub Enterprise</a></dd>
-        <dd><a href="http://status.github.com/">Site status</a></dd>
-      </dl>
-
-      <dl class="footer_nav">
-        <dt>Applications</dt>
-        <dd><a href="http://mac.github.com/">GitHub for Mac</a></dd>
-        <dd><a href="http://windows.github.com/">GitHub for Windows</a></dd>
-        <dd><a href="http://eclipse.github.com/">GitHub for Eclipse</a></dd>
-        <dd><a href="http://mobile.github.com/">GitHub mobile apps</a></dd>
-      </dl>
-
-      <dl class="footer_nav">
-        <dt>Services</dt>
-        <dd><a href="http://get.gaug.es/">Gauges: Web analytics</a></dd>
-        <dd><a href="http://speakerdeck.com">Speaker Deck: Presentations</a></dd>
-        <dd><a href="https://gist.github.com">Gist: Code snippets</a></dd>
-        <dd><a href="http://jobs.github.com/">Job board</a></dd>
-      </dl>
-
-      <dl class="footer_nav">
-        <dt>Documentation</dt>
-        <dd><a href="http://help.github.com/">GitHub Help</a></dd>
-        <dd><a href="http://developer.github.com/">Developer API</a></dd>
-        <dd><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></dd>
-        <dd><a href="http://pages.github.com/">GitHub Pages</a></dd>
-      </dl>
-
-      <dl class="footer_nav">
-        <dt>More</dt>
-        <dd><a href="http://training.github.com/">Training</a></dd>
-        <dd><a href="/edu">Students &amp; teachers</a></dd>
-        <dd><a href="http://shop.github.com">The Shop</a></dd>
-        <dd><a href="/plans">Plans &amp; pricing</a></dd>
-        <dd><a href="http://octodex.github.com/">The Octodex</a></dd>
-      </dl>
-
-      <hr class="footer-divider">
-
-
-    <p class="right">&copy; 2013 <span title="0.10551s from fe17.rs.github.com">GitHub</span>, Inc. All rights reserved.</p>
-    <a class="left" href="/">
-      <span class="mega-octicon octicon-mark-github"></span>
-    </a>
-    <ul id="legal">
-        <li><a href="/site/terms">Terms of Service</a></li>
-        <li><a href="/site/privacy">Privacy</a></li>
-        <li><a href="/security">Security</a></li>
-    </ul>
-
-  </div><!-- /.container -->
-
-</div><!-- /.#footer -->
-
-
-    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
-  <div class="fullscreen-container js-fullscreen-container">
-    <div class="textarea-wrap">
-      <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
-          <div class="suggester-container">
-              <div class="suggester fullscreen-suggester js-navigation-container" id="fullscreen_suggester"
-                 data-url="/drvic10k/bootstrap-sortable/suggestions/commit">
-              </div>
-          </div>
-    </div>
-  </div>
-  <div class="fullscreen-sidebar">
-    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" title="Exit Zen Mode">
-      <span class="mega-octicon octicon-screen-normal"></span>
-    </a>
-    <a href="#" class="theme-switcher js-theme-switcher tooltipped leftwards"
-      title="Switch themes">
-      <span class="octicon octicon-color-mode"></span>
-    </a>
-  </div>
-</div>
-
-
-
-    <div id="ajax-error-message" class="flash flash-error">
-      <span class="octicon octicon-alert"></span>
-      <a href="#" class="octicon octicon-remove-close close ajax-error-dismiss"></a>
-      Something went wrong with that request. Please try again.
-    </div>
-
-    
-    <span id='server_response_time' data-time='0.10697' data-host='fe17'></span>
-    
-  </body>
-</html>
-
+/* TINY SORT modified according to this https://github.com/Sjeiti/TinySort/pull/51*/
+(function (e, t) { function h(e) { return e && e.toLowerCase ? e.toLowerCase() : e } function p(e, t) { for (var r = 0, i = e.length; r < i; r++) if (e[r] == t) return !n; return n } var n = !1, r = null, i = parseFloat, s = Math.min, o = /(-?\d+\.?\d*)$/g, u = /(\d+\.?\d*)$/g, a = [], f = [], l = function (e) { return typeof e == "string" }, c = Array.prototype.indexOf || function (e) { var t = this.length, n = Number(arguments[1]) || 0; n = n < 0 ? Math.ceil(n) : Math.floor(n); if (n < 0) n += t; for (; n < t; n++) { if (n in this && this[n] === e) return n } return -1 }; e.tinysort = { id: "TinySort", version: "1.5.2", copyright: "Copyright (c) 2008-2013 Ron Valstar", uri: "http://tinysort.sjeiti.com/", licensed: { MIT: "http://www.opensource.org/licenses/mit-license.php", GPL: "http://www.gnu.org/licenses/gpl.html" }, plugin: function () { var e = function (e, t) { a.push(e); f.push(t) }; e.indexOf = c; return e }(), defaults: { order: "asc", attr: r, data: r, useVal: n, place: "start", returns: n, cases: n, forceStrings: n, ignoreDashes: n, sortFunction: r } }; e.fn.extend({ tinysort: function () { var d, v, m = this, g = [], y = [], b = [], w = [], E = 0, S, x = [], T = [], N = function (t) { e.each(a, function (e, n) { n.call(n, t) }) }, C = function (t, r) { var s = 0; if (E !== 0) E = 0; while (s === 0 && E < S) { var a = w[E], c = a.oSettings, p = c.ignoreDashes ? u : o; N(c); if (c.sortFunction) { s = c.sortFunction(t, r) } else if (c.order == "rand") { s = Math.random() < .5 ? 1 : -1 } else { var d = n, v = !c.cases ? h(t.s[E]) : t.s[E], m = !c.cases ? h(r.s[E]) : r.s[E]; v = v.replace(/^\s*/i, "").replace(/\s*$/i, ""); m = m.replace(/^\s*/i, "").replace(/\s*$/i, ""); if (!A.forceStrings) { var g = l(v) ? v && v.match(p) : n, y = l(m) ? m && m.match(p) : n; if (g && y) { var b = v.substr(0, v.length - g[0].length), x = m.substr(0, m.length - y[0].length); if (b == x) { d = !n; v = i(g[0]); m = i(y[0]) } } } s = a.iAsc * (v < m ? -1 : v > m ? 1 : 0) } e.each(f, function (e, t) { s = t.call(t, d, v, m, s) }); if (s === 0) E++ } return s }; for (d = 0, v = arguments.length; d < v; d++) { var k = arguments[d]; if (l(k)) { if (x.push(k) - 1 > T.length) T.length = x.length - 1 } else { if (T.push(k) > x.length) x.length = T.length } } if (x.length > T.length) T.length = x.length; S = x.length; if (S === 0) { S = x.length = 1; T.push({}) } for (d = 0, v = S; d < v; d++) { var L = x[d], A = e.extend({}, e.tinysort.defaults, T[d]), O = !(!L || L == ""), M = O && L[0] == ":"; w.push({ sFind: L, oSettings: A, bFind: O, bAttr: !(A.attr === r || A.attr == ""), bData: A.data !== r, bFilter: M, $Filter: M ? m.filter(L) : m, fnSort: A.sortFunction, iAsc: A.order == "asc" ? 1 : -1 }) } m.each(function (n, r) { var i = e(r), s = i.parent().get(0), o, u = []; for (j = 0; j < S; j++) { var a = w[j], f = a.bFind ? a.bFilter ? a.$Filter.filter(r) : i.find(a.sFind) : i; u.push(a.bData ? f.data(a.oSettings.data) : a.bAttr ? f.attr(a.oSettings.attr) : a.oSettings.useVal ? f.val() : f.text()); if (o === t) o = f } var l = c.call(b, s); if (l < 0) { l = b.push(s) - 1; y[l] = { s: [], n: [] } } if (o.length > 0) y[l].s.push({ s: u, e: i, n: n }); else y[l].n.push({ e: i, n: n }) }); e.each(y, function (e, t) { t.s.sort(C) }); e.each(y, function (t, r) { var i = r.s.length, o = [], u = i, a = [0, 0]; switch (A.place) { case "first": e.each(r.s, function (e, t) { u = s(u, t.n) }); break; case "org": e.each(r.s, function (e, t) { o.push(t.n) }); break; case "end": u = r.n.length; break; default: u = 0 } for (d = 0; d < i; d++) { var f = p(o, d) ? !n : d >= u && d < u + r.s.length, l = (f ? r.s : r.n)[a[f ? 0 : 1]].e; l.parent().append(l); if (f || !A.returns) g.push(l.get(0)); a[f ? 0 : 1]++ } }); m.length = 0; Array.prototype.push.apply(m, g); return m } }); e.fn.TinySort = e.fn.Tinysort = e.fn.tsort = e.fn.tinysort })(jQuery);
+// moment.js
+// version : 2.0.0
+// author : Tim Wood
+// license : MIT
+// momentjs.com
+(function(e){function O(e,t){return function(n){return j(e.call(this,n),t)}}function M(e){return function(t){return this.lang().ordinal(e.call(this,t))}}function _(){}function D(e){H(this,e)}function P(e){var t=this._data={},n=e.years||e.year||e.y||0,r=e.months||e.month||e.M||0,i=e.weeks||e.week||e.w||0,s=e.days||e.day||e.d||0,o=e.hours||e.hour||e.h||0,u=e.minutes||e.minute||e.m||0,a=e.seconds||e.second||e.s||0,f=e.milliseconds||e.millisecond||e.ms||0;this._milliseconds=f+a*1e3+u*6e4+o*36e5,this._days=s+i*7,this._months=r+n*12,t.milliseconds=f%1e3,a+=B(f/1e3),t.seconds=a%60,u+=B(a/60),t.minutes=u%60,o+=B(u/60),t.hours=o%24,s+=B(o/24),s+=i*7,t.days=s%30,r+=B(s/30),t.months=r%12,n+=B(r/12),t.years=n}function H(e,t){for(var n in t)t.hasOwnProperty(n)&&(e[n]=t[n]);return e}function B(e){return e<0?Math.ceil(e):Math.floor(e)}function j(e,t){var n=e+"";while(n.length<t)n="0"+n;return n}function F(e,t,n){var r=t._milliseconds,i=t._days,s=t._months,o;r&&e._d.setTime(+e+r*n),i&&e.date(e.date()+i*n),s&&(o=e.date(),e.date(1).month(e.month()+s*n).date(Math.min(o,e.daysInMonth())))}function I(e){return Object.prototype.toString.call(e)==="[object Array]"}function q(e,t){var n=Math.min(e.length,t.length),r=Math.abs(e.length-t.length),i=0,s;for(s=0;s<n;s++)~~e[s]!==~~t[s]&&i++;return i+r}function R(e,t){return t.abbr=e,s[e]||(s[e]=new _),s[e].set(t),s[e]}function U(e){return e?(!s[e]&&o&&require("./lang/"+e),s[e]):t.fn._lang}function z(e){return e.match(/\[.*\]/)?e.replace(/^\[|\]$/g,""):e.replace(/\\/g,"")}function W(e){var t=e.match(a),n,r;for(n=0,r=t.length;n<r;n++)A[t[n]]?t[n]=A[t[n]]:t[n]=z(t[n]);return function(i){var s="";for(n=0;n<r;n++)s+=typeof t[n].call=="function"?t[n].call(i,e):t[n];return s}}function X(e,t){function r(t){return e.lang().longDateFormat(t)||t}var n=5;while(n--&&f.test(t))t=t.replace(f,r);return C[t]||(C[t]=W(t)),C[t](e)}function V(e){switch(e){case"DDDD":return p;case"YYYY":return d;case"YYYYY":return v;case"S":case"SS":case"SSS":case"DDD":return h;case"MMM":case"MMMM":case"dd":case"ddd":case"dddd":case"a":case"A":return m;case"X":return b;case"Z":case"ZZ":return g;case"T":return y;case"MM":case"DD":case"YY":case"HH":case"hh":case"mm":case"ss":case"M":case"D":case"d":case"H":case"h":case"m":case"s":return c;default:return new RegExp(e.replace("\\",""))}}function $(e,t,n){var r,i,s=n._a;switch(e){case"M":case"MM":s[1]=t==null?0:~~t-1;break;case"MMM":case"MMMM":r=U(n._l).monthsParse(t),r!=null?s[1]=r:n._isValid=!1;break;case"D":case"DD":case"DDD":case"DDDD":t!=null&&(s[2]=~~t);break;case"YY":s[0]=~~t+(~~t>68?1900:2e3);break;case"YYYY":case"YYYYY":s[0]=~~t;break;case"a":case"A":n._isPm=(t+"").toLowerCase()==="pm";break;case"H":case"HH":case"h":case"hh":s[3]=~~t;break;case"m":case"mm":s[4]=~~t;break;case"s":case"ss":s[5]=~~t;break;case"S":case"SS":case"SSS":s[6]=~~(("0."+t)*1e3);break;case"X":n._d=new Date(parseFloat(t)*1e3);break;case"Z":case"ZZ":n._useUTC=!0,r=(t+"").match(x),r&&r[1]&&(n._tzh=~~r[1]),r&&r[2]&&(n._tzm=~~r[2]),r&&r[0]==="+"&&(n._tzh=-n._tzh,n._tzm=-n._tzm)}t==null&&(n._isValid=!1)}function J(e){var t,n,r=[];if(e._d)return;for(t=0;t<7;t++)e._a[t]=r[t]=e._a[t]==null?t===2?1:0:e._a[t];r[3]+=e._tzh||0,r[4]+=e._tzm||0,n=new Date(0),e._useUTC?(n.setUTCFullYear(r[0],r[1],r[2]),n.setUTCHours(r[3],r[4],r[5],r[6])):(n.setFullYear(r[0],r[1],r[2]),n.setHours(r[3],r[4],r[5],r[6])),e._d=n}function K(e){var t=e._f.match(a),n=e._i,r,i;e._a=[];for(r=0;r<t.length;r++)i=(V(t[r]).exec(n)||[])[0],i&&(n=n.slice(n.indexOf(i)+i.length)),A[t[r]]&&$(t[r],i,e);e._isPm&&e._a[3]<12&&(e._a[3]+=12),e._isPm===!1&&e._a[3]===12&&(e._a[3]=0),J(e)}function Q(e){var t,n,r,i=99,s,o,u;while(e._f.length){t=H({},e),t._f=e._f.pop(),K(t),n=new D(t);if(n.isValid()){r=n;break}u=q(t._a,n.toArray()),u<i&&(i=u,r=n)}H(e,r)}function G(e){var t,n=e._i;if(w.exec(n)){e._f="YYYY-MM-DDT";for(t=0;t<4;t++)if(S[t][1].exec(n)){e._f+=S[t][0];break}g.exec(n)&&(e._f+=" Z"),K(e)}else e._d=new Date(n)}function Y(t){var n=t._i,r=u.exec(n);n===e?t._d=new Date:r?t._d=new Date(+r[1]):typeof n=="string"?G(t):I(n)?(t._a=n.slice(0),J(t)):t._d=n instanceof Date?new Date(+n):new Date(n)}function Z(e,t,n,r,i){return i.relativeTime(t||1,!!n,e,r)}function et(e,t,n){var i=r(Math.abs(e)/1e3),s=r(i/60),o=r(s/60),u=r(o/24),a=r(u/365),f=i<45&&["s",i]||s===1&&["m"]||s<45&&["mm",s]||o===1&&["h"]||o<22&&["hh",o]||u===1&&["d"]||u<=25&&["dd",u]||u<=45&&["M"]||u<345&&["MM",r(u/30)]||a===1&&["y"]||["yy",a];return f[2]=t,f[3]=e>0,f[4]=n,Z.apply({},f)}function tt(e,n,r){var i=r-n,s=r-e.day();return s>i&&(s-=7),s<i-7&&(s+=7),Math.ceil(t(e).add("d",s).dayOfYear()/7)}function nt(e){var n=e._i,r=e._f;return n===null||n===""?null:(typeof n=="string"&&(e._i=n=U().preparse(n)),t.isMoment(n)?(e=H({},n),e._d=new Date(+n._d)):r?I(r)?Q(e):K(e):Y(e),new D(e))}function rt(e,n){t.fn[e]=t.fn[e+"s"]=function(e){var t=this._isUTC?"UTC":"";return e!=null?(this._d["set"+t+n](e),this):this._d["get"+t+n]()}}function it(e){t.duration.fn[e]=function(){return this._data[e]}}function st(e,n){t.duration.fn["as"+e]=function(){return+this/n}}var t,n="2.0.0",r=Math.round,i,s={},o=typeof module!="undefined"&&module.exports,u=/^\/?Date\((\-?\d+)/i,a=/(\[[^\[]*\])|(\\)?(Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|YYYYY|YYYY|YY|a|A|hh?|HH?|mm?|ss?|SS?S?|X|zz?|ZZ?|.)/g,f=/(\[[^\[]*\])|(\\)?(LT|LL?L?L?|l{1,4})/g,l=/([0-9a-zA-Z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)/gi,c=/\d\d?/,h=/\d{1,3}/,p=/\d{3}/,d=/\d{1,4}/,v=/[+\-]?\d{1,6}/,m=/[0-9]*[a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF]+\s*?[\u0600-\u06FF]+/i,g=/Z|[\+\-]\d\d:?\d\d/i,y=/T/i,b=/[\+\-]?\d+(\.\d{1,3})?/,w=/^\s*\d{4}-\d\d-\d\d((T| )(\d\d(:\d\d(:\d\d(\.\d\d?\d?)?)?)?)?([\+\-]\d\d:?\d\d)?)?/,E="YYYY-MM-DDTHH:mm:ssZ",S=[["HH:mm:ss.S",/(T| )\d\d:\d\d:\d\d\.\d{1,3}/],["HH:mm:ss",/(T| )\d\d:\d\d:\d\d/],["HH:mm",/(T| )\d\d:\d\d/],["HH",/(T| )\d\d/]],x=/([\+\-]|\d\d)/gi,T="Month|Date|Hours|Minutes|Seconds|Milliseconds".split("|"),N={Milliseconds:1,Seconds:1e3,Minutes:6e4,Hours:36e5,Days:864e5,Months:2592e6,Years:31536e6},C={},k="DDD w W M D d".split(" "),L="M D H h m s w W".split(" "),A={M:function(){return this.month()+1},MMM:function(e){return this.lang().monthsShort(this,e)},MMMM:function(e){return this.lang().months(this,e)},D:function(){return this.date()},DDD:function(){return this.dayOfYear()},d:function(){return this.day()},dd:function(e){return this.lang().weekdaysMin(this,e)},ddd:function(e){return this.lang().weekdaysShort(this,e)},dddd:function(e){return this.lang().weekdays(this,e)},w:function(){return this.week()},W:function(){return this.isoWeek()},YY:function(){return j(this.year()%100,2)},YYYY:function(){return j(this.year(),4)},YYYYY:function(){return j(this.year(),5)},a:function(){return this.lang().meridiem(this.hours(),this.minutes(),!0)},A:function(){return this.lang().meridiem(this.hours(),this.minutes(),!1)},H:function(){return this.hours()},h:function(){return this.hours()%12||12},m:function(){return this.minutes()},s:function(){return this.seconds()},S:function(){return~~(this.milliseconds()/100)},SS:function(){return j(~~(this.milliseconds()/10),2)},SSS:function(){return j(this.milliseconds(),3)},Z:function(){var e=-this.zone(),t="+";return e<0&&(e=-e,t="-"),t+j(~~(e/60),2)+":"+j(~~e%60,2)},ZZ:function(){var e=-this.zone(),t="+";return e<0&&(e=-e,t="-"),t+j(~~(10*e/6),4)},X:function(){return this.unix()}};while(k.length)i=k.pop(),A[i+"o"]=M(A[i]);while(L.length)i=L.pop(),A[i+i]=O(A[i],2);A.DDDD=O(A.DDD,3),_.prototype={set:function(e){var t,n;for(n in e)t=e[n],typeof t=="function"?this[n]=t:this["_"+n]=t},_months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),months:function(e){return this._months[e.month()]},_monthsShort:"Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),monthsShort:function(e){return this._monthsShort[e.month()]},monthsParse:function(e){var n,r,i,s;this._monthsParse||(this._monthsParse=[]);for(n=0;n<12;n++){this._monthsParse[n]||(r=t([2e3,n]),i="^"+this.months(r,"")+"|^"+this.monthsShort(r,""),this._monthsParse[n]=new RegExp(i.replace(".",""),"i"));if(this._monthsParse[n].test(e))return n}},_weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),weekdays:function(e){return this._weekdays[e.day()]},_weekdaysShort:"Sun_Mon_Tue_Wed_Thu_Fri_Sat".split("_"),weekdaysShort:function(e){return this._weekdaysShort[e.day()]},_weekdaysMin:"Su_Mo_Tu_We_Th_Fr_Sa".split("_"),weekdaysMin:function(e){return this._weekdaysMin[e.day()]},_longDateFormat:{LT:"h:mm A",L:"MM/DD/YYYY",LL:"MMMM D YYYY",LLL:"MMMM D YYYY LT",LLLL:"dddd, MMMM D YYYY LT"},longDateFormat:function(e){var t=this._longDateFormat[e];return!t&&this._longDateFormat[e.toUpperCase()]&&(t=this._longDateFormat[e.toUpperCase()].replace(/MMMM|MM|DD|dddd/g,function(e){return e.slice(1)}),this._longDateFormat[e]=t),t},meridiem:function(e,t,n){return e>11?n?"pm":"PM":n?"am":"AM"},_calendar:{sameDay:"[Today at] LT",nextDay:"[Tomorrow at] LT",nextWeek:"dddd [at] LT",lastDay:"[Yesterday at] LT",lastWeek:"[last] dddd [at] LT",sameElse:"L"},calendar:function(e,t){var n=this._calendar[e];return typeof n=="function"?n.apply(t):n},_relativeTime:{future:"in %s",past:"%s ago",s:"a few seconds",m:"a minute",mm:"%d minutes",h:"an hour",hh:"%d hours",d:"a day",dd:"%d days",M:"a month",MM:"%d months",y:"a year",yy:"%d years"},relativeTime:function(e,t,n,r){var i=this._relativeTime[n];return typeof i=="function"?i(e,t,n,r):i.replace(/%d/i,e)},pastFuture:function(e,t){var n=this._relativeTime[e>0?"future":"past"];return typeof n=="function"?n(t):n.replace(/%s/i,t)},ordinal:function(e){return this._ordinal.replace("%d",e)},_ordinal:"%d",preparse:function(e){return e},postformat:function(e){return e},week:function(e){return tt(e,this._week.dow,this._week.doy)},_week:{dow:0,doy:6}},t=function(e,t,n){return nt({_i:e,_f:t,_l:n,_isUTC:!1})},t.utc=function(e,t,n){return nt({_useUTC:!0,_isUTC:!0,_l:n,_i:e,_f:t})},t.unix=function(e){return t(e*1e3)},t.duration=function(e,n){var r=t.isDuration(e),i=typeof e=="number",s=r?e._data:i?{}:e,o;return i&&(n?s[n]=e:s.milliseconds=e),o=new P(s),r&&e.hasOwnProperty("_lang")&&(o._lang=e._lang),o},t.version=n,t.defaultFormat=E,t.lang=function(e,n){var r;if(!e)return t.fn._lang._abbr;n?R(e,n):s[e]||U(e),t.duration.fn._lang=t.fn._lang=U(e)},t.langData=function(e){return e&&e._lang&&e._lang._abbr&&(e=e._lang._abbr),U(e)},t.isMoment=function(e){return e instanceof D},t.isDuration=function(e){return e instanceof P},t.fn=D.prototype={clone:function(){return t(this)},valueOf:function(){return+this._d},unix:function(){return Math.floor(+this._d/1e3)},toString:function(){return this.format("ddd MMM DD YYYY HH:mm:ss [GMT]ZZ")},toDate:function(){return this._d},toJSON:function(){return t.utc(this).format("YYYY-MM-DD[T]HH:mm:ss.SSS[Z]")},toArray:function(){var e=this;return[e.year(),e.month(),e.date(),e.hours(),e.minutes(),e.seconds(),e.milliseconds()]},isValid:function(){return this._isValid==null&&(this._a?this._isValid=!q(this._a,(this._isUTC?t.utc(this._a):t(this._a)).toArray()):this._isValid=!isNaN(this._d.getTime())),!!this._isValid},utc:function(){return this._isUTC=!0,this},local:function(){return this._isUTC=!1,this},format:function(e){var n=X(this,e||t.defaultFormat);return this.lang().postformat(n)},add:function(e,n){var r;return typeof e=="string"?r=t.duration(+n,e):r=t.duration(e,n),F(this,r,1),this},subtract:function(e,n){var r;return typeof e=="string"?r=t.duration(+n,e):r=t.duration(e,n),F(this,r,-1),this},diff:function(e,n,r){var i=this._isUTC?t(e).utc():t(e).local(),s=(this.zone()-i.zone())*6e4,o,u;return n&&(n=n.replace(/s$/,"")),n==="year"||n==="month"?(o=(this.daysInMonth()+i.daysInMonth())*432e5,u=(this.year()-i.year())*12+(this.month()-i.month()),u+=(this-t(this).startOf("month")-(i-t(i).startOf("month")))/o,n==="year"&&(u/=12)):(o=this-i-s,u=n==="second"?o/1e3:n==="minute"?o/6e4:n==="hour"?o/36e5:n==="day"?o/864e5:n==="week"?o/6048e5:o),r?u:B(u)},from:function(e,n){return t.duration(this.diff(e)).lang(this.lang()._abbr).humanize(!n)},fromNow:function(e){return this.from(t(),e)},calendar:function(){var e=this.diff(t().startOf("day"),"days",!0),n=e<-6?"sameElse":e<-1?"lastWeek":e<0?"lastDay":e<1?"sameDay":e<2?"nextDay":e<7?"nextWeek":"sameElse";return this.format(this.lang().calendar(n,this))},isLeapYear:function(){var e=this.year();return e%4===0&&e%100!==0||e%400===0},isDST:function(){return this.zone()<t([this.year()]).zone()||this.zone()<t([this.year(),5]).zone()},day:function(e){var t=this._isUTC?this._d.getUTCDay():this._d.getDay();return e==null?t:this.add({d:e-t})},startOf:function(e){e=e.replace(/s$/,"");switch(e){case"year":this.month(0);case"month":this.date(1);case"week":case"day":this.hours(0);case"hour":this.minutes(0);case"minute":this.seconds(0);case"second":this.milliseconds(0)}return e==="week"&&this.day(0),this},endOf:function(e){return this.startOf(e).add(e.replace(/s?$/,"s"),1).subtract("ms",1)},isAfter:function(e,n){return n=typeof n!="undefined"?n:"millisecond",+this.clone().startOf(n)>+t(e).startOf(n)},isBefore:function(e,n){return n=typeof n!="undefined"?n:"millisecond",+this.clone().startOf(n)<+t(e).startOf(n)},isSame:function(e,n){return n=typeof n!="undefined"?n:"millisecond",+this.clone().startOf(n)===+t(e).startOf(n)},zone:function(){return this._isUTC?0:this._d.getTimezoneOffset()},daysInMonth:function(){return t.utc([this.year(),this.month()+1,0]).date()},dayOfYear:function(e){var n=r((t(this).startOf("day")-t(this).startOf("year"))/864e5)+1;return e==null?n:this.add("d",e-n)},isoWeek:function(e){var t=tt(this,1,4);return e==null?t:this.add("d",(e-t)*7)},week:function(e){var t=this.lang().week(this);return e==null?t:this.add("d",(e-t)*7)},lang:function(t){return t===e?this._lang:(this._lang=U(t),this)}};for(i=0;i<T.length;i++)rt(T[i].toLowerCase().replace(/s$/,""),T[i]);rt("year","FullYear"),t.fn.days=t.fn.day,t.fn.weeks=t.fn.week,t.fn.isoWeeks=t.fn.isoWeek,t.duration.fn=P.prototype={weeks:function(){return B(this.days()/7)},valueOf:function(){return this._milliseconds+this._days*864e5+this._months*2592e6},humanize:function(e){var t=+this,n=et(t,!e,this.lang());return e&&(n=this.lang().pastFuture(t,n)),this.lang().postformat(n)},lang:t.fn.lang};for(i in N)N.hasOwnProperty(i)&&(st(i,N[i]),it(i.toLowerCase()));st("Weeks",6048e5),t.lang("en",{ordinal:function(e){var t=e%10,n=~~(e%100/10)===1?"th":t===1?"st":t===2?"nd":t===3?"rd":"th";return e+n}}),o&&(module.exports=t),typeof ender=="undefined"&&(this.moment=t),typeof define=="function"&&define.amd&&define("moment",[],function(){return t})}).call(this);
+
+(function ($) {
+
+  var $document = $(document),
+        bsSort = [],
+      lastSort;
+
+  $.bootstrapSortable = function (applyLast) {
+    // set attributes needed for sorting
+    $('table.sortable').each(function () {
+      var $this = $(this);
+      applyLast = (applyLast === true);
+      $this.find('span.arrow').remove();
+      $this.find('thead th').each(function (index) {
+        $(this).attr('data-sortkey', index);
+      });
+      $this.find('td').each(function () {
+        var $this = $(this);
+        if ($this.attr('data-dateformat') != undefined) {
+          $this.attr('data-value', moment($this.text(), $this.attr('data-dateformat')).format('YYYY-MM-DD'));
+        }
+        else {
+          $this.attr('data-value') === undefined && $this.attr('data-value', $this.text());
+        }
+      });
+      $this.find('thead th').each(function (index) {
+        var $this = $(this);
+        lastSort = applyLast ? lastSort : -1;
+        bsSort[index] = applyLast ? bsSort[index] : $this.attr('data-defaultsort');
+        if (bsSort[index] != null && (applyLast == (index == lastSort))) {
+          bsSort[index] = bsSort[index] == 'asc' ? 'desc' : 'asc';
+          $this.click();
+        }
+      });
+    });
+  };
+
+  // add click event to table header
+  $document.on('click', 'table.sortable thead th', function (e) {
+    var $this = $(this), $table = $this.parents('table.sortable');
+
+    // update arrow icon
+    if ($.browser.mozilla) {
+      var moz_arrow = $table.find('div.mozilla');
+      if (moz_arrow != null) {
+        moz_arrow.parent().html(moz_arrow.text());
+      }
+      $this.wrapInner('<div class="mozilla"></div>');
+      $this.children().eq(0).append('<span class="arrow"></span>');
+    }
+    else {
+      $table.find('span.arrow').remove();
+      $this.append('<span class="arrow"></span>');
+    }
+
+    // sort direction
+    var nr = $this.attr('data-sortkey');
+    lastSort = nr;
+    bsSort[nr] = bsSort[nr] == 'asc' ? 'desc' : 'asc';
+    if (bsSort[nr] == 'desc') { $this.find('span.arrow').addClass('up'); }
+
+    // sort rows
+    var rows = $table.find('tbody tr');
+    rows.tsort('td:eq(' + nr + ')', { order: bsSort[nr], attr: 'data-value' });
+  });
+
+  // jQuery 1.9 removed this object
+  if (!$.browser) {
+    $.browser = { chrome: false, mozilla: false, opera: false, msie: false, safari: false };
+    var ua = navigator.userAgent;
+    $.each($.browser, function (c, a) {
+      $.browser[c] = ((new RegExp(c, 'i').test(ua))) ? true : false;
+      if ($.browser.mozilla && c == 'mozilla') { $.browser.mozilla = ((new RegExp('firefox', 'i').test(ua))) ? true : false; };
+      if ($.browser.chrome && c == 'safari') { $.browser.safari = false; };
+    });
+  };
+
+  // Initialise on DOM ready
+  $($.bootstrapSortable);
+
+}(jQuery));
