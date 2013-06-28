@@ -65,9 +65,11 @@ def search(request):
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
         
-        entry_query = get_query(query_string, ['machinename', 'ram',])
+        entry_query = get_query(query_string, ['asset_code', 'username','s_no',])
 
         found_entries = Poll.objects.filter(entry_query)
+    else:
+    	found_entries = Poll.objects.order_by('id')
 
 
 
@@ -84,10 +86,15 @@ def view(request):
 	orderby = Poll.objects.order_by('id')
 	return render(request, 'manager/view2.html', locals())
 
-@staff_member_required
-def add(request):
-	form = PollForm()
-	return render(request, 'manager/add2.html', locals())
+#online add
+
+
+# @staff_member_required
+# def add(request):
+# 	form = PollForm()
+# 	return render(request, 'manager/add2.html', locals())
+#
+#
 # 	p = Poll(
 # 		uid = 0
 # 	    asset_code = "abc"
@@ -135,91 +142,93 @@ def delete(request,id):
 	print "did not find the obj"
 	return render(request, 'manager/index2.html', locals())
 
-@staff_member_required
-def handle_add(request):
-	if request.method == 'POST':
-		print request.POST
-		uid = request.POST.get('uid')
-		asset_code = request.POST.get('asset_code')
-		asset_category = request.POST.get('asset_category')
-		region = request.POST.get('region')
-		unit = request.POST.get('unit')
-		location = request.POST.get('location')
-		floor = request.POST.get('floor')
-		username = request.POST.get('username')
-		empcode = request.POST.get('empcode')
-		designation = request.POST.get('designation')
-		department = request.POST.get('department')
-		machinename = request.POST.get('machinename')
-		role = request.POST.get('role')
-		model_name = request.POST.get('model_name')
-		s_no = request.POST.get('s_no')
-		processor = request.POST.get('processor')
-		hdd = request.POST.get('hdd')
-		ram = request.POST.get('ram')
-		os = request.POST.get('os')
-		warr_amc = request.POST.get('warr_amc')
-		warr_vend = request.POST.get('warr_vend')
-		warr_start_date = request.POST.get('warr_start_date')
-		warr_exp_date = request.POST.get('warr_exp_date')
-		company = request.POST.get('company')
-		po_details = request.POST.get('po_details')
-		ram_change_date = datetime.now()
-		hdd_change_date = datetime.now()
-		working = 1
-		# if uid & asset_code && asset_category && region && unit && location && floor && username && empcode &&designation && department && machinename && role && model_name && s_no && processor && hdd && ram && os && warr_amc && warr_vend && warr_start_date && warr_exp_date && company && po_details :
-		flag=0
-		if department=="" or role=="" or model_name=="" or asset_category=="" :
-			flag=1
+#handle add
 
-		orderby = Poll.objects.order_by('id')
-		if orderby:
-			for poll in orderby:
-				if s_no==poll.s_no and s_no:
-					flag=1
-					print "alreadyinuse"
-					return render(request, 'manager/inuse.html', locals())
+# @staff_member_required
+# def handle_add(request):
+# 	if request.method == 'POST':
+# 		print request.POST
+# 		uid = request.POST.get('uid')
+# 		asset_code = request.POST.get('asset_code')
+# 		asset_category = request.POST.get('asset_category')
+# 		region = request.POST.get('region')
+# 		unit = request.POST.get('unit')
+# 		location = request.POST.get('location')
+# 		floor = request.POST.get('floor')
+# 		username = request.POST.get('username')
+# 		empcode = request.POST.get('empcode')
+# 		designation = request.POST.get('designation')
+# 		department = request.POST.get('department')
+# 		machinename = request.POST.get('machinename')
+# 		role = request.POST.get('role')
+# 		model_name = request.POST.get('model_name')
+# 		s_no = request.POST.get('s_no')
+# 		processor = request.POST.get('processor')
+# 		hdd = request.POST.get('hdd')
+# 		ram = request.POST.get('ram')
+# 		os = request.POST.get('os')
+# 		warr_amc = request.POST.get('warr_amc')
+# 		warr_vend = request.POST.get('warr_vend')
+# 		warr_start_date = request.POST.get('warr_start_date')
+# 		warr_exp_date = request.POST.get('warr_exp_date')
+# 		company = request.POST.get('company')
+# 		po_details = request.POST.get('po_details')
+# 		ram_change_date = datetime.now()
+# 		hdd_change_date = datetime.now()
+# 		working = 1
+# 		# if uid & asset_code && asset_category && region && unit && location && floor && username && empcode &&designation && department && machinename && role && model_name && s_no && processor && hdd && ram && os && warr_amc && warr_vend && warr_start_date && warr_exp_date && company && po_details :
+# 		flag=0
+# 		if department=="" or role=="" or model_name=="" or asset_category=="" :
+# 			flag=1
 
-		print uid
-		p = Poll(uid=uid,
-			asset_code = asset_code,
-			asset_category = asset_category,
-			region = region,
-			unit = unit,
-			location = location,
-			floor = floor,
-			username = username,
-			empcode = empcode,
-			designation = designation,
-			department = department,
-			machinename = machinename,
-			role = role,
-			model_name = model_name,
-			s_no = s_no,
-			processor = processor,
-			hdd = hdd,
-			ram = ram,
-			os = os,
-			warr_amc = warr_amc,
-			warr_vend = warr_vend,
-			warr_start_date = warr_start_date,
-			warr_exp_date = warr_exp_date,
-			company = company,
-			po_details = po_details,
-			working = working,
-			ram_change_date = ram_change_date,
-			hdd_change_date = hdd_change_date)
-		if flag==0:
-			p.save()
+# 		orderby = Poll.objects.order_by('id')
+# 		if orderby:
+# 			for poll in orderby:
+# 				if s_no==poll.s_no and s_no:
+# 					flag=1
+# 					print "alreadyinuse"
+# 					return render(request, 'manager/inuse.html', locals())
+
+# 		print uid
+# 		p = Poll(uid=uid,
+# 			asset_code = asset_code,
+# 			asset_category = asset_category,
+# 			region = region,
+# 			unit = unit,
+# 			location = location,
+# 			floor = floor,
+# 			username = username,
+# 			empcode = empcode,
+# 			designation = designation,
+# 			department = department,
+# 			machinename = machinename,
+# 			role = role,
+# 			model_name = model_name,
+# 			s_no = s_no,
+# 			processor = processor,
+# 			hdd = hdd,
+# 			ram = ram,
+# 			os = os,
+# 			warr_amc = warr_amc,
+# 			warr_vend = warr_vend,
+# 			warr_start_date = warr_start_date,
+# 			warr_exp_date = warr_exp_date,
+# 			company = company,
+# 			po_details = po_details,
+# 			working = working,
+# 			ram_change_date = ram_change_date,
+# 			hdd_change_date = hdd_change_date)
+# 		if flag==0:
+# 			p.save()
 		
-		print 'saving form'
-		return HttpResponseRedirect("/manager/view/")
-	# else:
-		# return render(request, 'manager/notadded.html', locals())
+# 		print 'saving form'
+# 		return HttpResponseRedirect("/manager/view/")
+# 	# else:
+# 		# return render(request, 'manager/notadded.html', locals())
 
-	else:
-		form = PollForm()
-		return render(request, 'manager/add2.html', locals())
+# 	else:
+# 		form = PollForm()
+# 		return render(request, 'manager/add2.html', locals())
 
 @staff_member_required
 def contact_us(request):
@@ -499,6 +508,7 @@ def handle_offline_add(request):
 		hdd = request.POST.get('hdd')
 		ram = request.POST.get('ram')
 		os = request.POST.get('os')
+		asset_code = request.POST.get('asset_code')
 		working = 0
 		hdd_change_date = datetime.now()
 		ram_change_date = datetime.now()
@@ -513,7 +523,7 @@ def handle_offline_add(request):
 					print "alreadyinuse"
 					return render(request, 'manager/inuse.html', locals())
 		p = Poll(uid='',
-			asset_code = '',
+			asset_code = asset_code,
 			asset_category = '',
 			region = '',
 			unit = '',
@@ -816,13 +826,13 @@ def searchoffline(request):
     found_entries = None
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
+
         
-        entry_query = get_query(query_string, ['model_name', 'ram',])
+        entry_query = get_query(query_string, ['asset_code',])
 
         found_entries = Poll.objects.filter(entry_query)
-
-
-
+    else:
+    	found_entries = Poll.objects.order_by('id')
     return render_to_response('manager/viewofflinestock.html',
                           { 'query_string': query_string, 'found_entries': found_entries },
                           context_instance=RequestContext(request))

@@ -3,16 +3,19 @@
 class="active"
 {% endblock %}
 {% block for_contacts %}
-<div class = "container well">
+<div class = "container well" style="font-size:15px">
 	MACHINES WORKING: {{count_working}}
 	<br/>
+	<br/>
+
 	MACHINES NOT WORKING: {{count_not_working}}
+	<br/>
 	<br/>
 	TOTAL MACHINES: {{total}}
 	<br/>
 	<br/>
 	<br/>
 	<br/>
-	<a href="{% url 'expfull' %}" class="btn btn-primary">Export to .xls ( working + not working )</a>
+	<a href="{% url 'expfull' %}" class="btn btn-info">Export to .xls ( online + offline )</a>
 </div>
 {% endblock %}

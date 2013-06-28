@@ -1,9 +1,6 @@
 {% extends "manager/index.html" %}
-{% load bootstrap_toolkit %}
 {% block nav-view %}
 class="active"
-{% endblock %}
-{% block content %}
 {% endblock %}
 {% block for_edit %}
 <div class="container">
@@ -31,7 +28,7 @@ class="active"
             <input type="text" name="uid" placeholder="UID" value="{{obj.uid}}">
           </div>
         </div>
-         <div class="control-group">
+        <div class="control-group">
           <label class="control-label">WORKING</label>
           <div class="controls">
             <input type="text" name="working" placeholder="working" value="{{obj.working}}">

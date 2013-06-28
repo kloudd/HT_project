@@ -1,9 +1,48 @@
 {% extends "manager/index.html" %}
+{% load staticfiles %}
 {% block nav-index %}
 class="active"
 {% endblock %}
 {% block for_index %}
-<div>
-	<h3>THIS IS THE INDEX PAGE</h3>
+<div class="well-large">
+	<div id="myCarousel" class="carousel slide well" style="height:auto">
+		<!-- <div class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</div> -->
+		<div class="carousel-inner" style="border-top:18px solid #222; border-bottom:1px solid #222; border-radius:4px;background:#333; min-height:200px;">
+			<div class="active item" style="background:#333; color:#CCC;text-align:center;">
+				
+				<br />
+				<br />
+				<h1>WELCOME TO INVENTORY MANAGEMENT!!!!</h1>
+				
+			</div>
+			<div class="item" style="background:#333;color:#CCC;text-align:center;">
+				<br />
+				<br />
+				<h1>EXPLORE NEW WAYS TO ADD RECORD!!!</h1>
+				
+			</div>
+			<div class="item" style="background:#333;color:#CCC;text-align:center;">
+				<br />
+				<br />
+				<h1>NEW FEATURE : EXPORT EXCEL</h1>
+				
+			</div>
+
+		</div>
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+	</div>
+
 </div>
+
+<script type="text/javascript">
+$('.carousel').carousel({
+	interval: 2000
+});
+
+</script>
 {% endblock %}
