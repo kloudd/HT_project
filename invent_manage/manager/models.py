@@ -30,7 +30,22 @@ class Poll(models.Model):
     working = models.IntegerField(max_length=10)
     ram_change_date = models.DateTimeField('date published')
     hdd_change_date = models.DateTimeField('date published')
+    required_power = models.IntegerField(max_length=10, null=True)
+    actual_power = models.IntegerField(max_length=10, null=True)
+    user_critical = models.IntegerField(max_length=10, null=True)
+    weight_user = models.IntegerField(max_length=10, null=True)
+    faliure_rate = models.IntegerField(max_length=10, null=True)
+    weight_faliure = models.IntegerField(max_length=10, null=True)
+    agency = models.IntegerField(max_length=10, null=True)
+    weight_age = models.IntegerField(max_length=10, null=True)
+    power_gap_rating = models.IntegerField(max_length=10, null=True)
+    weight_computer = models.IntegerField(max_length=10, null=True)
+    risk_index = models.IntegerField(max_length=10, null=True)
 
+
+    ################
+    
+    ################
 
 
 class PollForm(ModelForm):

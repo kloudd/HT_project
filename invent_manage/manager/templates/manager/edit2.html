@@ -59,6 +59,10 @@ class="active"
           <label class="control-label">Region</label>
           <div class="controls">
             <select id="region" name="region" size=1 onchange="setOptionsforregion(document.myform.region.options[document.myform.region.selectedIndex].value);">
+              <option value="" 
+              {% ifequal obj.region "" %}
+              selected="selected" 
+              {% endifequal %}>---------</option>
               <option value="LUCKNOW" 
               {% ifequal obj.region "LUCKNOW" %}
               selected="selected" 
@@ -70,6 +74,9 @@ class="active"
           <label class="control-label">unit</label>
           <div class="controls">
             <select id="unit" name="unit" size="1" onchange="setOptionsforunit(document.myform.unit.options[document.myform.unit.selectedIndex].value);">
+              <option value="" 
+              {% ifequal obj.unit ""%}
+              selected="selected" {% endifequal %}>----------</option>
               <option value="KANPUR" 
               {% ifequal obj.unit "KANPUR"%}
               selected="selected" {% endifequal %}>KANPUR</option>
@@ -92,6 +99,8 @@ class="active"
           <label class="control-label">Location</label>
           <div class="controls">
             <select name="location" id="location" size="1">
+              <option value="" {% ifequal obj.location "" %}
+              selected="selected" {% endifequal %}>--------</option>
               <option value="BANDA" {% ifequal obj.location "BANDA" %}
               selected="selected" {% endifequal %}>BANDA</option>
               <option value="ETAWAH" {% ifequal obj.location "ETAWAH" %}
@@ -227,6 +236,8 @@ class="active"
           <label class="control-label">Department</label>
           <div class="controls">
             <select id="department" name="department" size=1 onchange="setOptions(document.myform.department.options[document.myform.department.selectedIndex].value);">
+              <option value=""{% ifequal obj.department ""%}
+              selected="selected" {% endifequal %}>----------</option>
               <option value="EDITORIALS"{% ifequal obj.department "EDITORIALS(HINDI + ENGLISH)"%}
               selected="selected" {% endifequal %}>EDITORIALS(HINDI + ENGLISH)</option>
               <option value="MEDIA MARKETING"{% ifequal obj.department "MEDIA MARKETING"%}
@@ -270,6 +281,8 @@ class="active"
           <label class="control-label">Role</label>
           <div class="controls">
             <select id="role" name="role" size="1">
+              <option value=""{% ifequal obj.department ""%}
+              selected="selected" {% endifequal %}>----------</option>
               <option value="DESIGNER" {% ifequal obj.role "DESIGNER"%}
               selected="selected" {% endifequal %}>DESIGNER</option>
               <option value="DESK"{% ifequal obj.role "DESK"%}
@@ -299,6 +312,8 @@ class="active"
               <option value="IT" {% ifequal obj.role "IT"%}
               selected="selected" {% endifequal %}>IT</option>
               <option value="LT" {% ifequal obj.role "LT"%}
+              selected="selected" {% endifequal %}>LT</option>
+               <option value="MINT" {% ifequal obj.role "MINT"%}
               selected="selected" {% endifequal %}>LT</option>
               <option value="OTHERS" {% ifequal obj.role "OTHERS"%}
               selected="selected" {% endifequal %}>OTHERS</option>
@@ -425,6 +440,9 @@ $(function () {
 function setOptions(chosen){
   var selbox=document.myform.role;
   selbox.options.length=0;
+  if(chosen == ""){
+    selbox.options[selbox.options.length] = new Option('');
+  }
   if(chosen == "EDITORIALS"){
     selbox.options[selbox.options.length] = new Option('DESIGNER');
     selbox.options[selbox.options.length] = new Option('DESK');
@@ -500,7 +518,13 @@ function setOptions(chosen){
 <script>
 function setOptionsforregion(chosen){
   var selbox=document.myform.unit;
+  var selbox2=document.myform.location;
   selbox.options.length=0;
+  selbox2.options.length=0;
+  if(chosen == ""){
+    selbox.options[selbox.options.length] = new Option('');
+    selbox2.options[selbox2.options.length] = new Option('');
+  }
   if(chosen == "LUCKNOW"){
     selbox.options[selbox.options.length] = new Option('KANPUR');
     selbox.options[selbox.options.length] = new Option('VARANASI');
@@ -508,12 +532,14 @@ function setOptionsforregion(chosen){
     selbox.options[selbox.options.length] = new Option('ALLAHABAD');
     selbox.options[selbox.options.length] = new Option('LUCKNOW');
   }
+  
 }
 </script>
 <script>
 function setOptionsforunit(chosen){
   var selbox=document.myform.location;
   selbox.options.length=0;
+   
   if(chosen == "KANPUR"){
     selbox.options[selbox.options.length] = new Option('BANDA');
     selbox.options[selbox.options.length] = new Option('ETAWAH');

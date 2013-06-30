@@ -15,24 +15,22 @@ class="active"
 				</li>
 				<li><a href="#page4"  data-toggle="tab">Warranty Details</a>
 				</li>
-
-				<div class="">
+				<li><a href="#page5"  data-toggle="tab">Power Details - 1</a>
+				</li>
+				<li><a href="#page6"  data-toggle="tab">Power Details - 2</a>
+				</li>
+			</ul>
+			<div class="">
 					<form class="form-search"action="{% url 'search' %}" method="get" style="text-align:right">
 						<a class = "btn btn-info btn-small" href="{% url 'exp' %}">Export to .xls ( online )</a>
 						&nbsp;
-						<!-- <a class = "btn btn-info btn-small" href=""><i class="icon-plus"></i>Add Online Record</a>
-					-->
-					<input id="id_q" name="q" type="text"  class="input-medium search-query" style="" value="{{ query_string }}">
-					<button type="submit" class="btn">Search</button>
-				</form>
-			</div>
-		</ul>
+						<input id="id_q" name="q" type="text"  class="input-medium search-query" style="" value="{{ query_string }}" />
+						<button type="submit" class="btn">Search</button>
+					</form>
+				</div>
+		</div>
 	</div>
-
 </div>
-
-</div>
-
 <div class="well" style="font-size:12px">
 	<div class="tab-content">
 		<div id="page1" class="tab-pane">
@@ -44,14 +42,12 @@ class="active"
 						<th><span class="btn">ID</span></th>
 						<th><span class="btn">UID</span></th>
 						<th><span class="btn">MACHINE</span></th>
-						
 						<th><span class="btn">MODEL</span></th>
 						<th><span class="btn">S&nbsp;NO.</span></th>
 						<th><span class="btn">PROCESSOR</span></th>
 						<th><span class="btn">RAM</span></th>
 						<th><span class="btn">HDD</span></th>
 						<th><span class="btn">OPERATING SYSTEM</span></th>
-						
 					</tr>
 				</thead>
 				<tbody>
@@ -65,19 +61,16 @@ class="active"
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
 						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
 						<td data-value="{{poll.machinename}}">{{ poll.machinename }}</td>
-						
 						<td data-value="{{poll.model_name}}">{{ poll.model_name }}</td>
 						<td data-value="{{poll.s_no}}">{{ poll.s_no }}</td>
 						<td data-value="{{poll.processor}}">{{ poll.processor }}</td>
 						<td data-value="{{poll.ram}}">{{ poll.ram }}</td>
 						<td data-value="{{poll.hdd}}">{{ poll.hdd }}</td>
 						<td data-value="{{poll.os}}">{{ poll.os }}</td>
-						
 					</tr>
 					{% endifequal %}
 					{% endfor %}
 					{% else %}
-					
 					{% endif %}
 				</tbody>
 				<tbody>
@@ -91,22 +84,18 @@ class="active"
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
 						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
 						<td data-value="{{poll.machinename}}">{{ poll.machinename }}</td>
-						
 						<td data-value="{{poll.model_name}}">{{ poll.model_name }}</td>
 						<td data-value="{{poll.s_no}}">{{ poll.s_no }}</td>
 						<td data-value="{{poll.processor}}">{{ poll.processor }}</td>
 						<td data-value="{{poll.ram}}">{{ poll.ram }}</td>
 						<td data-value="{{poll.hdd}}">{{ poll.hdd }}</td>
 						<td data-value="{{poll.os}}">{{ poll.os }}</td>
-						
 					</tr>
 					{% endifequal %}
 					{% endfor %}
 					{% else %}
-					
 					{% endif %}
 				</tbody>
-
 			</table>
 		</div>
 		<div id="page2" class="tab-pane">
@@ -123,7 +112,6 @@ class="active"
 						<th><span class="btn">UNIT</span></th>
 						<th><span class="btn">LOCATION</span></th>
 						<th><span class="btn">FLOOR</span></th>
-
 					</tr>
 				</thead>
 				<tbody>
@@ -140,13 +128,11 @@ class="active"
 						<td data-value="{{poll.region}}">{{ poll.region }}</td>
 						<td data-value="{{poll.unit}}">{{ poll.unit }}</td>
 						<td data-value="{{poll.location}}">{{ poll.location }}</td>
-						<td data-value="{{poll.floor}}">{{ poll.floor }}</td>
-						
+						<td data-value="{{poll.floor}}">{{ poll.floor }}</td>	
 					</tr>
 					{% endifequal %}
 					{% endfor %}
 					{% else %}
-					
 					{% endif %}
 				</tbody>
 				<tbody>
@@ -164,16 +150,12 @@ class="active"
 						<td data-value="{{poll.unit}}">{{ poll.unit }}</td>
 						<td data-value="{{poll.location}}">{{ poll.location }}</td>
 						<td data-value="{{poll.floor}}">{{ poll.floor }}</td>
-						
 					</tr>
 					{% endifequal %}
 					{% endfor %}
 					{% else %}
-					
 					{% endif %}
 				</tbody>
-
-
 			</table>
 		</div>
 		<div id="page3" class="tab-pane">
@@ -191,7 +173,6 @@ class="active"
 						<th><span class="btn">ROLE</span></th>
 						<th><span class="btn">RAM&nbsp;DATE</span></th>
 						<th><span class="btn">HDD&nbsp;DATE</span></th>
-						
 					</tr>
 				</thead>
 				<tbody>
@@ -210,12 +191,10 @@ class="active"
 						<td data-value="{{poll.role}}">{{ poll.role }}</td>
 						<td data-value="{{poll.ram_change_date}}">{{ poll.ram_change_date }}</td>
 						<td data-value="{{poll.hdd_change_date}}">{{ poll.hdd_change_date }}</td>
-						
 					</tr>
 					{% endifequal %}
 					{% endfor %}
 					{% else %}
-					
 					{% endif %}
 				</tbody>
 				<tbody>
@@ -234,12 +213,10 @@ class="active"
 						<td data-value="{{poll.role}}">{{ poll.role }}</td>
 						<td data-value="{{poll.ram_change_date}}">{{ poll.ram_change_date }}</td>
 						<td data-value="{{poll.hdd_change_date}}">{{ poll.hdd_change_date }}</td>
-
 					</tr>
 					{% endifequal %}
 					{% endfor %}
 					{% else %}
-					
 					{% endif %}
 				</tbody>
 			</table>
@@ -252,7 +229,6 @@ class="active"
 						<td></td>
 						<th data-defaultsort="asc" data-sortkey="0"><span class="btn">ID</span></th>
 						<th><span class="btn">UID</span></th>
-						
 						<th><span class="btn">AMC</span></th>
 						<th><span class="btn">VENDOR</span></th>
 						<th><span class="btn">START DATE</span></th>
@@ -270,7 +246,6 @@ class="active"
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
 						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
-						
 						<td data-value="{{poll.warr_amc}}">{{ poll.warr_amc }}</td>
 						<td data-value="{{poll.warr_vend}}">{{ poll.warr_vend }}</td>
 						<td data-value="{{poll.warr_start_date}}">{{ poll.warr_start_date }}</td>
@@ -293,7 +268,6 @@ class="active"
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
 						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
-						
 						<td data-value="{{poll.warr_amc}}">{{ poll.warr_amc }}</td>
 						<td data-value="{{poll.warr_vend}}">{{ poll.warr_vend }}</td>
 						<td data-value="{{poll.warr_start_date}}">{{ poll.warr_start_date }}</td>
@@ -304,7 +278,128 @@ class="active"
 					{% endifequal %}
 					{% endfor %}
 					{% else %}
-					
+					{% endif %}
+				</tbody>
+			</table>
+		</div>
+		<div id="page5" class="tab-pane">
+			<table class="table table-bordered sortable">
+				<thead> 
+					<tr>
+						<td></td>
+						<td></td>
+						<th><span class="btn">ID</span></th>
+						<th><span class="btn">UID</span></th>
+						<th><span class="btn">REQUIRED POWER</span></th>
+						<th><span class="btn">ACTUAL POWER</span></th>
+						<th><span class="btn">USER CRITICAL</span></th>
+						<th><span class="btn">WEIGHT USER</span></th>
+						<th><span class="btn">FALIURE RATE</span></th>
+						<th><span class="btn">WEIGHT FALIURE</span></th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{% if orderby %}
+					{% for poll in orderby %}
+					{% ifequal poll.working 1 %}
+					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
+					<tr>
+						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
+						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
+						<td data-value="{{poll.id}}">{{ poll.id }}</td>
+						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
+						<td data-value="{{poll.required_power}}">{{ poll.required_power }}</td>
+						<td data-value="{{poll.actual_power}}">{{ poll.actual_power }}</td>
+						<td data-value="{{poll.user_critical}}">{{ poll.user_critical }}</td>
+						<td data-value="{{poll.weight_user}}">{{ poll.weight_user }}</td>
+						<td data-value="{{poll.faliure_rate}}">{{ poll.faliure_rate }}</td>
+						<td data-value="{{poll.weight_faliure}}">{{ poll.weight_faliure }}</td>
+					</tr>
+					{% endifequal %}
+					{% endfor %}
+					{% else %}
+					{% endif %}
+				</tbody>
+				<tbody>
+					{% if found_entries %}
+					{% for poll in found_entries %}
+					{% ifequal poll.working 1 %}
+					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
+					<tr>
+						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
+						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
+						<td data-value="{{poll.id}}">{{ poll.id }}</td>
+						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
+						<td data-value="{{poll.required_faliure}}">{{ poll.required_power }}</td>
+						<td data-value="{{poll.actual_power}}">{{ poll.actual_power }}</td>
+						<td data-value="{{poll.user_critical_weight}}">{{ poll.user_critical_weight }}</td>
+						<td data-value="{{poll.faliure_rate}}">{{ poll.faliure_rate }}</td>
+						<td data-value="{{poll.weight_faliure}}">{{ poll.weight_faliure }}</td>	
+					</tr>
+					{% endifequal %}
+					{% endfor %}
+					{% else %}	
+					{% endif %}
+				</tbody>
+			</table>
+		</div>
+		<div id="page6" class="tab-pane">
+			<table class="table table-bordered sortable">
+				<thead> 
+					<tr>
+						<td></td>
+						<td></td>
+						<th><span class="btn">ID</span></th>
+						<th><span class="btn">UID</span></th>	
+						<th><span class="btn">AGENCY</span></th>
+						<th><span class="btn">WEIGHT AGE</span></th>
+						<th><span class="btn">POWER GAP RATING</span></th>
+						<th><span class="btn">WEIGHT COMPUTER</span></th>
+						<th><span class="btn">RISK INDEX</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% if orderby %}
+					{% for poll in orderby %}
+					{% ifequal poll.working 1 %}
+					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
+					<tr>
+						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
+						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
+						<td data-value="{{poll.id}}">{{ poll.id }}</td>
+						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
+						<td data-value="{{poll.agency}}">{{ poll.agency }}</td>
+						<td data-value="{{poll.weight_age}}">{{ poll.weight_age }}</td>	
+						<td data-value="{{poll.power_gap_rating}}">{{ poll.power_gap_rating }}</td>
+						<td data-value="{{poll.weight_computer}}">{{ poll.weight_computer }}</td>
+						<td data-value="{{poll.risk_index}}">{{ poll.risk_index }}</td>
+
+					</tr>
+					{% endifequal %}
+					{% endfor %}
+					{% else %}
+					{% endif %}
+				</tbody>
+				<tbody>
+					{% if found_entries %}
+					{% for poll in found_entries %}
+					{% ifequal poll.working 1 %}
+					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
+					<tr>
+						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
+						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
+						<td data-value="{{poll.id}}">{{ poll.id }}</td>
+						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
+						<td data-value="{{poll.agency}}">{{ poll.agency }}</td>
+						<td data-value="{{poll.weight_age}}">{{ poll.weight_age }}</td>	
+						<td data-value="{{poll.power_gap_rating}}">{{ poll.power_gap_rating }}</td>
+						<td data-value="{{poll.weight_computer}}">{{ poll.weight_computer }}</td>
+						<td data-value="{{poll.risk_index}}">{{ poll.risk_index }}</td>
+					</tr>
+					{% endifequal %}
+					{% endfor %}
+					{% else %}
 					{% endif %}
 				</tbody>
 			</table>
