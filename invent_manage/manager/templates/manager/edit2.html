@@ -41,13 +41,13 @@ class="active"
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">Asset Code</label>
+          <label class="control-label">ASSET CODE</label>
           <div class="controls">
             <input type="text" name="asset_code" placeholder="asset code" value="{{obj.asset_code}}">
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">Asset Category</label>
+          <label class="control-label">ASSET CATEGORY</label>
           <div class="controls">
             <input type="text" name="asset_category" placeholder="asset category" value="{{obj.asset_category}}">
           </div>
@@ -56,7 +56,7 @@ class="active"
       </div>
       <div class="tab-pane fade" id="step2">
         <div class="control-group">
-          <label class="control-label">Region</label>
+          <label class="control-label">REGION</label>
           <div class="controls">
             <select id="region" name="region" size=1 onchange="setOptionsforregion(document.myform.region.options[document.myform.region.selectedIndex].value);">
               <option value="" 
@@ -71,7 +71,7 @@ class="active"
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">unit</label>
+          <label class="control-label">UNIT</label>
           <div class="controls">
             <select id="unit" name="unit" size="1" onchange="setOptionsforunit(document.myform.unit.options[document.myform.unit.selectedIndex].value);">
               <option value="" 
@@ -96,7 +96,7 @@ class="active"
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">Location</label>
+          <label class="control-label">LOCATION</label>
           <div class="controls">
             <select name="location" id="location" size="1">
               <option value="" {% ifequal obj.location "" %}
@@ -207,7 +207,7 @@ class="active"
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">Floor</label>
+          <label class="control-label">FLOOR</label>
           <div class="controls">
             <input type="text" name="floor" placeholder="floor" value="{{obj.floor}}">
           </div>
@@ -215,30 +215,30 @@ class="active"
       </div>
       <div class="tab-pane fade" id="step3">
         <div class="control-group">
-          <label class="control-label">Emp code</label>
+          <label class="control-label">EMP CODE</label>
           <div class="controls">
             <input type="text" name="empcode" placeholder="empcode" value="{{obj.empcode}}">
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">User name</label>
+          <label class="control-label">USER NAME</label>
           <div class="controls">
             <input type="text" name="username" placeholder="user name" value="{{obj.username}}">
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">Designation</label>
+          <label class="control-label">DESIGNATION</label>
           <div class="controls">
             <input type="text" name="designation" placeholder="designation" value="{{obj.designation}}">
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">Department</label>
+          <label class="control-label">DEPARTMENT</label>
           <div class="controls">
             <select id="department" name="department" size=1 onchange="setOptions(document.myform.department.options[document.myform.department.selectedIndex].value);">
               <option value=""{% ifequal obj.department ""%}
               selected="selected" {% endifequal %}>----------</option>
-              <option value="EDITORIALS"{% ifequal obj.department "EDITORIALS(HINDI + ENGLISH)"%}
+              <option value="EDITORIALS(HINDI + ENGLISH)"{% ifequal obj.department "EDITORIALS(HINDI + ENGLISH)"%}
               selected="selected" {% endifequal %}>EDITORIALS(HINDI + ENGLISH)</option>
               <option value="MEDIA MARKETING"{% ifequal obj.department "MEDIA MARKETING"%}
               selected="selected" {% endifequal %}>MEDIA MARKETING</option>
@@ -278,7 +278,7 @@ class="active"
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label">Role</label>
+          <label class="control-label">ROLE</label>
           <div class="controls">
             <select id="role" name="role" size="1">
               <option value=""{% ifequal obj.department ""%}
@@ -313,7 +313,7 @@ class="active"
               selected="selected" {% endifequal %}>IT</option>
               <option value="LT" {% ifequal obj.role "LT"%}
               selected="selected" {% endifequal %}>LT</option>
-               <option value="MINT" {% ifequal obj.role "MINT"%}
+              <option value="MINT" {% ifequal obj.role "MINT"%}
               selected="selected" {% endifequal %}>LT</option>
               <option value="OTHERS" {% ifequal obj.role "OTHERS"%}
               selected="selected" {% endifequal %}>OTHERS</option>
@@ -349,84 +349,417 @@ class="active"
       </div>
       <div class="tab-pane fade" id="step4">
        <div class="control-group">
-        <label class="control-label">Model</label>
+        <label class="control-label">MODEL</label>
         <div class="controls">
-          <input type="text" name="model_name" placeholder="model" value="{{obj.model_name}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">S No</label>
-        <div class="controls">
-          <input type="text" name="s_no" placeholder="sno" value="{{obj.s_no}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Processor</label>
-        <div class="controls">
-          <input type="text" name="processor" placeholder="processor" value="{{obj.processor}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">RAM</label>
-        <div class="controls">
-          <input type="text" name="ram" placeholder="ram" value="{{obj.ram}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">HDD</label>
-        <div class="controls">
-          <input type="text" name="hdd" placeholder="hdd" value="{{obj.hdd}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">OS</label>
-        <div class="controls">
-          <input type="text" name="os" placeholder="os" value="{{obj.os}}">
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="step5">
-      <div class="control-group">
-        <label class="control-label">Warranty/AMC</label>
-        <div class="controls">
-          <input type="text" name="warr_amc" placeholder="warr_amc" value="{{obj.warr_amc}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Warranty Vendor</label>
-        <div class="controls">
-          <input type="text" name="warr_vend" placeholder="warr_vend" value="{{obj.warr_vend}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Warranty Start Date</label>
-        <div class="controls">
-          <input type="text" name="warr_start_date" placeholder="warr_start_date" value="{{obj.warr_start_date}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Warranty Expiry Date</label>
-        <div class="controls">
-          <input type="text" name="warr_exp_date" placeholder="warr_exp_date" value="{{obj.warr_exp_date}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Company</label>
-        <div class="controls">
-          <input type="text" name="company" placeholder="company" value="{{obj.company}}">
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Po Details</label>
-        <div class="controls">
-          <input type="text" name="po_details" placeholder="po_details" value="{{obj.po_details}}">
-        </div>
-      </div>
-      <div class="controls">
-        <input type="submit" value="submit" class="btn btn-primary" />
-      </div>
+          <select id="model_name" name="model_name" size="1">
+           <option value=""{% ifequal obj.model_name ""%}
+           selected="selected" {% endifequal %}>----------</option>
+           <option value="Dell OptiPlex 380DT"{% ifequal obj.model_name "Dell OptiPlex 380DT"%}
+           selected="selected" {% endifequal %}>Dell OptiPlex 380DT</option>
+           <option value="Dell D630"{% ifequal obj.model_name "Dell D630"%}
+           selected="selected" {% endifequal %}>Dell D630</option>
+           <option value="Dell E5420"{% ifequal obj.model_name "Dell E5420"%}
+           selected="selected" {% endifequal %}>Dell E5420</option>
+           <option value="Dell Vostro 1014"{% ifequal obj.model_name "Dell Vostro 1014"%}
+           selected="selected" {% endifequal %}>Dell Vostro 1014</option>
+           <option value="Dell OptiPlex GX520"{% ifequal obj.model_name "Dell OptiPlex GX520"%}
+           selected="selected" {% endifequal %}>Dell OptiPlex GX520</option>
+           <option value="Dell D620"{% ifequal obj.model_name "Dell D620"%}
+           selected="selected" {% endifequal %}>Dell D620</option>
+           <option value="Dell Optiplex GX 260"{% ifequal obj.model_name "Dell Optiplex GX 260"%}
+           selected="selected" {% endifequal %}>Dell Optiplex GX 260</option>
+           <option value="Dell Optiplex GX320"{% ifequal obj.model_name "Dell Optiplex GX320"%}
+           selected="selected" {% endifequal %}>Dell Optiplex GX320</option>
+           <option value="Dell D520"{% ifequal obj.model_name "Dell D520"%}
+           selected="selected" {% endifequal %}>Dell D520</option>
+           <option value="Dell Optiplex GX330"{% ifequal obj.model_name "Dell Optiplex GX330"%}
+           selected="selected" {% endifequal %}>Dell Optiplex GX330</option>
+           <option value="Dell  Vostro 1450"{% ifequal obj.model_name "Dell  Vostro 1450"%}
+           selected="selected" {% endifequal %}>Dell  Vostro 1450</option>
+           <option value="Dell Precision 370"{% ifequal obj.model_name "Dell Precision 370"%}
+           selected="selected" {% endifequal %}>Dell Precision 370</option>
+           <option value="Dell D610"{% ifequal obj.model_name "Dell D610"%}
+           selected="selected" {% endifequal %}>Dell D610</option>
+           <option value="Dell E6220"{% ifequal obj.model_name "Dell E6220"%}
+           selected="selected" {% endifequal %}>Dell E6220</option>
+           <option value="Dell Precision T3400"{% ifequal obj.model_name "Dell Precision T3400"%}
+           selected="selected" {% endifequal %}>Dell Precision T3400</option>
+           <option value="Dell Precision M90"{% ifequal obj.model_name "Dell Precision M90"%}
+           selected="selected" {% endifequal %}>Dell Precision M90</option>
+           <option value="HCL Infinite Pro 2000"{% ifequal obj.model_name "HCL Infinite Pro 2000"%}
+           selected="selected" {% endifequal %}>HCL Infinite Pro 2000</option>
+           <option value="Dell Vestro 1200"{% ifequal obj.model_name "Dell Vestro 1200"%}
+           selected="selected" {% endifequal %}>Dell Vestro 1200</option>
+           <option value="DHS"{% ifequal obj.model_name "DHS"%}
+           selected="selected" {% endifequal %}>DHS</option>
+           <option value="HCL Infinity "{% ifequal obj.model_name "HCL Infinity "%}
+           selected="selected" {% endifequal %}>HCL Infinity </option>
+           <option value="Dell Optiplex 390"{% ifequal obj.model_name "Dell Optiplex 390"%}
+           selected="selected" {% endifequal %}>Dell Optiplex 390</option>
+           <option value="Dell D430"{% ifequal obj.model_name "Dell D430"%}
+           selected="selected" {% endifequal %}>Dell D430</option>
+           <option value="Dell Optiplex GX960"{% ifequal obj.model_name "Dell Optiplex GX960"%}
+           selected="selected" {% endifequal %}>Dell Optiplex GX960</option>
+           <option value="Dell Optiplex 790"{% ifequal obj.model_name "Dell Optiplex 790"%}
+           selected="selected" {% endifequal %}>Dell Optiplex 790</option>
+           <option value="HCL Infiniti Pro"{% ifequal obj.model_name "HCL Infiniti Pro"%}
+           selected="selected" {% endifequal %}>HCL Infiniti Pro</option>
+           <option value="Dell D600"{% ifequal obj.model_name "Dell D600"%}
+           selected="selected" {% endifequal %}>Dell D600</option>
+           <option value="Dell E6320"{% ifequal obj.model_name "Dell E6320"%}
+           selected="selected" {% endifequal %}>Dell E6320</option>
+           <option value="Dell Optiplex GX745"{% ifequal obj.model_name "Dell Optiplex GX745"%}
+           selected="selected" {% endifequal %}>Dell Optiplex GX745</option>
+           <option value="WIPRO SUPER GENIUS"{% ifequal obj.model_name "WIPRO SUPER GENIUS"%}
+           selected="selected" {% endifequal %}>WIPRO SUPER GENIUS</option>
+           <option value="Dell Optiplex GX 280"{% ifequal obj.model_name "Dell Optiplex GX 280"%}
+           selected="selected" {% endifequal %}>Dell Optiplex GX 280</option>
+           <option value="Dell Poweredge 2950"{% ifequal obj.model_name "Dell Poweredge 2950"%}
+           selected="selected" {% endifequal %}>Dell Poweredge 2950</option>
+           <option value="Dell Optiplex D560"{% ifequal obj.model_name "Dell Optiplex D560"%}
+           selected="selected" {% endifequal %}>Dell Optiplex D560</option>
+           <option value="Dell Poweredge 1900"{% ifequal obj.model_name "Dell Poweredge 1900"%}
+           selected="selected" {% endifequal %}>Dell Poweredge 1900</option>
+           <option value="Dell Optiplex GX 350"{% ifequal obj.model_name "Dell Optiplex GX 350"%}
+           selected="selected" {% endifequal %}>Dell Optiplex GX 350</option>
+           <option value="Dell Precision 5130"{% ifequal obj.model_name "Dell Precision 5130"%}
+           selected="selected" {% endifequal %}>Dell Precision 5130</option>
+           <option value="Dell Workstation XW 4300"{% ifequal obj.model_name "Dell Workstation XW 4300"%}
+           selected="selected" {% endifequal %}>Dell Workstation XW 4300</option>
+           <option value="Dell D630"{% ifequal obj.model_name "Dell D630"%}
+           selected="selected" {% endifequal %}>Dell D630</option>
+           <option value="Dell Precision 450"{% ifequal obj.model_name "Dell Precision 450"%}
+           selected="selected" {% endifequal %}>Dell Precision 450</option>
+           <option value="IBM R 52"{% ifequal obj.model_name "IBM R 52"%}
+           selected="selected" {% endifequal %}>IBM R 52</option>
+           <option value="IBM R 60"{% ifequal obj.model_name "IBM R 60"%}
+           selected="selected" {% endifequal %}>IBM R 60</option>
+           <option value="IBM 8124"{% ifequal obj.model_name "IBM 8124"%}
+           selected="selected" {% endifequal %}>IBM 8124</option>
+           <option value="IBM Think Center"{% ifequal obj.model_name "IBM Think Center"%}
+           selected="selected" {% endifequal %}>IBM Think Center</option>
+           <option value="IBM Netvista"{% ifequal obj.model_name "IBM Netvista"%}
+           selected="selected" {% endifequal %}>IBM Netvista</option>
+           <option value="IBM 8175"{% ifequal obj.model_name "IBM 8175"%}
+           selected="selected" {% endifequal %}>IBM 8175</option>
+           <option value="IBM 8193"{% ifequal obj.model_name "IBM 8193"%}
+           selected="selected" {% endifequal %}>IBM 8193</option>
+           <option value="IBM 8187"{% ifequal obj.model_name "IBM 8187"%}
+           selected="selected" {% endifequal %}>IBM 8187</option>
+           <option value="IBM R 50"{% ifequal obj.model_name "IBM R 50"%}
+           selected="selected" {% endifequal %}>IBM R 50</option>
+           <option value="IBM 8305"{% ifequal obj.model_name "IBM 8305"%}
+           selected="selected" {% endifequal %}>IBM 8305</option>
+           <option value="IBM 8326"{% ifequal obj.model_name "IBM 8326"%}
+           selected="selected" {% endifequal %}>IBM 8326</option>
+           <option value="IBM 8296"{% ifequal obj.model_name "IBM 8296"%}
+           selected="selected" {% endifequal %}>IBM 8296</option>
+           <option value="Fujitsu DT5-D1844"{% ifequal obj.model_name "Fujitsu DT5-D1844"%}
+           selected="selected" {% endifequal %}>Fujitsu DT5-D1844</option>
+           <option value="IBM 8297"{% ifequal obj.model_name "IBM 8297"%}
+           selected="selected" {% endifequal %}>IBM 8297</option>
+           <option value="IBM 8303"{% ifequal obj.model_name "IBM 8303"%}
+           selected="selected" {% endifequal %}>IBM 8303</option>
+           <option value="IBM 8309"{% ifequal obj.model_name "IBM 8309"%}
+           selected="selected" {% endifequal %}>IBM 8309</option>
+           <option value="IBM 6792"{% ifequal obj.model_name "IBM 6792"%}
+           selected="selected" {% endifequal %}>IBM 6792</option>
+           <option value="IBM 8188"{% ifequal obj.model_name "IBM 8188"%}
+           selected="selected" {% endifequal %}>IBM 8188</option>
+           <option value="IBM 9637"{% ifequal obj.model_name "IBM 9637"%}
+           selected="selected" {% endifequal %}>IBM 9637</option>
+           <option value="IBM 8985"{% ifequal obj.model_name "IBM 8985"%}
+           selected="selected" {% endifequal %}>IBM 8985</option>
+           <option value="IBM 1875"{% ifequal obj.model_name "IBM 1875"%}
+           selected="selected" {% endifequal %}>IBM 1875</option>
+           <option value="IBM 8215"{% ifequal obj.model_name "IBM 8215"%}
+           selected="selected" {% endifequal %}>IBM 8215</option>
+           <option value="IBM 8123"{% ifequal obj.model_name "IBM 8123"%}
+           selected="selected" {% endifequal %}>IBM 8123</option>
+           <option value="IBM 9143"{% ifequal obj.model_name "IBM 9143"%}
+           selected="selected" {% endifequal %}>IBM 9143</option>
+           <option value="IBM 8305"{% ifequal obj.model_name "IBM 8305"%}
+           selected="selected" {% endifequal %}>IBM 8305</option>
+           <option value="NEC Powermate"{% ifequal obj.model_name "NEC Powermate"%}
+           selected="selected" {% endifequal %}>NEC Powermate</option>
+           <option value="IBM 8171"{% ifequal obj.model_name "IBM 8171"%}
+           selected="selected" {% endifequal %}>IBM 8171</option>
+           <option value="IBM 6417"{% ifequal obj.model_name "IBM 6417"%}
+           selected="selected" {% endifequal %}>IBM 6417</option>
+           <option value="IBM 8326"{% ifequal obj.model_name "IBM 8326"%}
+           selected="selected" {% endifequal %}>IBM 8326</option>
+           <option value="IBM 9389"{% ifequal obj.model_name "IBM 9389"%}
+           selected="selected" {% endifequal %}>IBM 9389</option>
+           <option value="IBM 8702"{% ifequal obj.model_name "IBM 8702"%}
+           selected="selected" {% endifequal %}>IBM 8702</option>
+           <option value="IBM 8035"{% ifequal obj.model_name "IBM 8035"%}
+           selected="selected" {% endifequal %}>IBM 8035</option>
+           <option value="IBM 8177"{% ifequal obj.model_name "IBM 8177"%}
+           selected="selected" {% endifequal %}>IBM 8177</option>
+           <option value="IBM 9481"{% ifequal obj.model_name "IBM 9481"%}
+           selected="selected" {% endifequal %}>IBM 9481</option>
+           <option value="IBM 8191"{% ifequal obj.model_name "IBM 8191"%}
+           selected="selected" {% endifequal %}>IBM 8191</option>
+           <option value="IBM 8126"{% ifequal obj.model_name "IBM 8126"%}
+           selected="selected" {% endifequal %}>IBM 8126</option>
+           <option value="IBM 8172"{% ifequal obj.model_name "IBM 8172"%}
+           selected="selected" {% endifequal %}>IBM 8172</option>
+           <option value="IBM 8327"{% ifequal obj.model_name "IBM 8327"%}
+           selected="selected" {% endifequal %}>IBM 8327</option>
+           <option value="IBM 8376"{% ifequal obj.model_name "IBM 8376"%}
+           selected="selected" {% endifequal %}>IBM 8376</option>
+           <option value="IBM 8127"{% ifequal obj.model_name "IBM 8127"%}
+           selected="selected" {% endifequal %}>IBM 8127</option>
+           <option value="IBM 8139"{% ifequal obj.model_name "IBM 8139"%}
+           selected="selected" {% endifequal %}>IBM 8139</option>
+           <option value="IBM 8309"{% ifequal obj.model_name "IBM 8309"%}
+           selected="selected" {% endifequal %}>IBM 8309</option>
+           <option value="IBM 8142"{% ifequal obj.model_name "IBM 8142"%}
+           selected="selected" {% endifequal %}>IBM 8142</option>
+           <option value="IBM 8307"{% ifequal obj.model_name "IBM 8307"%}
+           selected="selected" {% endifequal %}>IBM 8307</option>
+           <option value="Lenovo M3156"{% ifequal obj.model_name "Lenovo M3156"%}
+           selected="selected" {% endifequal %}>Lenovo M3156</option>
+           <option value="Lenovo 9481"{% ifequal obj.model_name "Lenovo 9481"%}
+           selected="selected" {% endifequal %}>Lenovo 9481</option>
+           <option value="Lenovo M6417"{% ifequal obj.model_name "Lenovo M6417"%}
+           selected="selected" {% endifequal %}>Lenovo M6417</option>
+           <option value="Lenovo Think Center"{% ifequal obj.model_name "Lenovo Think Center"%}
+           selected="selected" {% endifequal %}>Lenovo Think Center</option>
+           <option value="Lenovo 2048"{% ifequal obj.model_name "Lenovo 2048"%}
+           selected="selected" {% endifequal %}>Lenovo 2048</option>
+           <option value="Lenovo M8985"{% ifequal obj.model_name "Lenovo M8985"%}
+           selected="selected" {% endifequal %}>Lenovo M8985</option>
+           <option value="Lenovo 4089"{% ifequal obj.model_name "Lenovo 4089"%}
+           selected="selected" {% endifequal %}>Lenovo 4089</option>
+           <option value="Lenovo Ideapad S100"{% ifequal obj.model_name "Lenovo Ideapad S100"%}
+           selected="selected" {% endifequal %}>Lenovo Ideapad S100</option>
+           <option value="Lenovo M9143"{% ifequal obj.model_name "Lenovo M9143"%}
+           selected="selected" {% endifequal %}>Lenovo M9143</option>
+           <option value="Lenovo 9637"{% ifequal obj.model_name "Lenovo 9637"%}
+           selected="selected" {% endifequal %}>Lenovo 9637</option>
+           <option value="Lenovo 9389"{% ifequal obj.model_name "Lenovo 9389"%}
+           selected="selected" {% endifequal %}>Lenovo 9389</option>
+           <option value="lenovo 20109"{% ifequal obj.model_name "lenovo 20109"%}
+           selected="selected" {% endifequal %}>lenovo 20109</option>
+           <option value="Lenovo M3156"{% ifequal obj.model_name "Lenovo M3156"%}
+           selected="selected" {% endifequal %}>Lenovo M3156</option>
+           <option value="Lenovo 2931"{% ifequal obj.model_name "Lenovo 2931"%}
+           selected="selected" {% endifequal %}>Lenovo 2931</option>
+           <option value="Lenovo 8124"{% ifequal obj.model_name "Lenovo 8124"%}
+           selected="selected" {% endifequal %}>Lenovo 8124</option>
+           <option value="Powermate"{% ifequal obj.model_name "Powermate"%}
+           selected="selected" {% endifequal %}>Powermate</option>
+           <option value="Lenovo 8389"{% ifequal obj.model_name "Lenovo 8389"%}
+           selected="selected" {% endifequal %}>Lenovo 8389</option>
+           <option value="Lenovo 8297"{% ifequal obj.model_name "Lenovo 8297"%}
+           selected="selected" {% endifequal %}>Lenovo 8297</option>
+           <option value="Lenovo 9491"{% ifequal obj.model_name "Lenovo 9491"%}
+           selected="selected" {% endifequal %}>Lenovo 9491</option>
+           <option value="Lenovo 6792"{% ifequal obj.model_name "Lenovo 6792"%}
+           selected="selected" {% endifequal %}>Lenovo 6792</option>
+           <option value="Lenovo 9384"{% ifequal obj.model_name "Lenovo 9384"%}
+           selected="selected" {% endifequal %}>Lenovo 9384</option>
+           <option value="Lenovo 9989"{% ifequal obj.model_name "Lenovo 9989"%}
+           selected="selected" {% endifequal %}>Lenovo 9989</option>
+           <option value="Lenovo 8171"{% ifequal obj.model_name "Lenovo 8171"%}
+           selected="selected" {% endifequal %}>Lenovo 8171</option>
+           <option value="HP Compaq DX 2280 MT"{% ifequal obj.model_name "HP Compaq DX 2280 MT"%}
+           selected="selected" {% endifequal %}>HP Compaq DX 2280 MT</option>
+           <option value="HP Compaq DX 2480 MT"{% ifequal obj.model_name "HP Compaq DX 2480 MT"%}
+           selected="selected" {% endifequal %}>HP Compaq DX 2480 MT</option>
+           <option value="Compaq EVO"{% ifequal obj.model_name "Compaq EVO"%}
+           selected="selected" {% endifequal %}>Compaq EVO</option>
+           <option value="HP - P 3090"{% ifequal obj.model_name "HP - P 3090"%}
+           selected="selected" {% endifequal %}>HP - P 3090</option>
+           <option value=""{% ifequal obj.model_name "HP - P 3090"%}
+           selected="selected" {% endifequal %}>HP - P 3090</option>
+           <option value="HP Workstation Z400"{% ifequal obj.model_name "HP Workstation Z400"%}
+           selected="selected" {% endifequal %}>HP Workstation Z400</option>
+           <option value="HP Workstation XW 4600"{% ifequal obj.model_name "HP Workstation XW 4600"%}
+           selected="selected" {% endifequal %}>HP Workstation XW 4600</option>
+           <option value="HP DC 7600"{% ifequal obj.model_name "HP DC 7600"%}
+           selected="selected" {% endifequal %}>HP DC 7600</option>
+           <option value="HP - D7900"{% ifequal obj.model_name "HP - D7900"%}
+           selected="selected" {% endifequal %}>HP - D7900</option>
+           <option value="HP ProLiant ML110 G6"{% ifequal obj.model_name "HP ProLiant ML110 G6"%}
+           selected="selected" {% endifequal %}>HP ProLiant ML110 G6</option>
+           <option value="HP Workstation XW 6200"{% ifequal obj.model_name "HP Workstation XW 6200"%}
+           selected="selected" {% endifequal %}>HP Workstation XW 6200</option>
+           <option value="HP Workstation XW 4300"{% ifequal obj.model_name "HP Workstation XW 4300"%}
+           selected="selected" {% endifequal %}>HP Workstation XW 4300</option>
+           <option value="HP Workstation Z600"{% ifequal obj.model_name "HP Workstation Z600"%}
+           selected="selected" {% endifequal %}>HP Workstation Z600</option>
+           <option value="HP DC 7100"{% ifequal obj.model_name "HP DC 7100"%}
+           selected="selected" {% endifequal %}>HP DC 7100</option>
+           <option value="HP Workstation XW 4400"{% ifequal obj.model_name "HP Workstation XW 4400"%}
+           selected="selected" {% endifequal %}>HP Workstation XW 4400</option>
+           <option value="HP Workstation 7700"{% ifequal obj.model_name "HP Workstation 7700"%}
+           selected="selected" {% endifequal %}>HP Workstation 7700</option>
+           <option value="HP Workstation XW 6600"{% ifequal obj.model_name "HP Workstation XW 6600"%}
+           selected="selected" {% endifequal %}>HP Workstation XW 6600</option>
+           <option value="HP DC 7900"{% ifequal obj.model_name "HP DC 7900"%}
+           selected="selected" {% endifequal %}>HP DC 7900</option>
+           <option value="HP Workstation Z60"{% ifequal obj.model_name "HP Workstation Z60"%}
+           selected="selected" {% endifequal %}>HP Workstation Z60</option>
+           <option value="G 41"{% ifequal obj.model_name "G 41"%}
+           selected="selected" {% endifequal %}>G 41</option>
+           <option value="HP Compaq 2210b"{% ifequal obj.model_name "HP Compaq 2210b"%}
+           selected="selected" {% endifequal %}>HP Compaq 2210b</option>
+           <option value="HP Workstation XW 3000"{% ifequal obj.model_name "HP Workstation XW 3000"%}
+           selected="selected" {% endifequal %}>HP Workstation XW 3000</option>
+           <option value="HP 2305"{% ifequal obj.model_name "HP 2305"%}
+           selected="selected" {% endifequal %}>HP 2305</option>
+           <option value="HP Workstation XW 4200"{% ifequal obj.model_name "HP Workstation XW 4200"%}
+           selected="selected" {% endifequal %}>HP Workstation XW 4200</option>
+           <option value="HP 8200"{% ifequal obj.model_name "HP 8200"%}
+           selected="selected" {% endifequal %}>HP 8200</option>
+           <option value="HP P1505N"{% ifequal obj.model_name "HP P1505N"%}
+           selected="selected" {% endifequal %}>HP P1505N</option>
+           <option value="HP PRECISION 390"{% ifequal obj.model_name "HP PRECISION 390"%}
+           selected="selected" {% endifequal %}>HP PRECISION 390</option>
+           <option value="Toshiba PS214L"{% ifequal obj.model_name "Toshiba PS214L"%}
+           selected="selected" {% endifequal %}>Toshiba PS214L</option>
+           <option value="Fujitsu DT5-D1844"{% ifequal obj.model_name "Fujitsu DT5-D1844"%}
+           selected="selected" {% endifequal %}>Fujitsu DT5-D1844</option>
+           <option value="Dell D400"{% ifequal obj.model_name "Dell D400"%}
+           selected="selected" {% endifequal %}>Dell D400</option>
+           <option value="Dell D420"{% ifequal obj.model_name "Dell D420"%}
+           selected="selected" {% endifequal %}>Dell D420</option>
+           <option value="Fujitsu Esprimo V6535"{% ifequal obj.model_name "Fujitsu Esprimo V6535"%}
+           selected="selected" {% endifequal %}>Fujitsu Esprimo V6535</option>
+           <option value="Esprimo Mobile V6535"{% ifequal obj.model_name "Esprimo Mobile V6535"%}
+           selected="selected" {% endifequal %}>Esprimo Mobile V6535</option>
+           <option value="Dell D410"{% ifequal obj.model_name "Dell D410"%}
+           selected="selected" {% endifequal %}>Dell D410</option>
+           <option value="MAC BOOK"{% ifequal obj.model_name "MAC BOOK"%}
+           selected="selected" {% endifequal %}>MAC BOOK</option>
+           <option value="IMAC"{% ifequal obj.model_name "IMAC"%}
+           selected="selected" {% endifequal %}>IMAC</option>
+           <option value="APPLE"{% ifequal obj.model_name "APPLE"%}
+           selected="selected" {% endifequal %}>APPLE</option>
+           <option value="Dell Studio XPS 1640"{% ifequal obj.model_name "Dell Studio XPS 1640"%}
+           selected="selected" {% endifequal %}>Dell Studio XPS 1640</option>
+           <option value="MAC Airbook"{% ifequal obj.model_name "MAC Airbook"%}
+           selected="selected" {% endifequal %}>MAC Airbook</option>
+           <option value="Dell Optiplex 160L"{% ifequal obj.model_name "Dell Optiplex 160L"%}
+           selected="selected" {% endifequal %}>Dell Optiplex 160L</option>
+           <option value="Dell Lattitude X1"{% ifequal obj.model_name "Dell Lattitude X1"%}
+           selected="selected" {% endifequal %}>Dell Lattitude X1</option>
+           <option value="ASSEMBLED"{% ifequal obj.model_name "ASSEMBLED"%}
+           selected="selected" {% endifequal %}>ASSEMBLED</option>
+           <option value="Sony Vaio"{% ifequal obj.model_name "Sony Vaio"%}
+           selected="selected" {% endifequal %}>Sony Vaio</option>
+           <option value="Sony VGN-TZ17GN"{% ifequal obj.model_name "Sony VGN-TZ17GN"%}
+           selected="selected" {% endifequal %}>Sony VGN-TZ17GN</option>
+           <option value="Sony S2VGN"{% ifequal obj.model_name "Sony S2VGN"%}
+           selected="selected" {% endifequal %}>Sony S2VGN</option>
+           <option value="Power Mac G3 Series"{% ifequal obj.model_name "Power Mac G3 Series"%}
+           selected="selected" {% endifequal %}>Power Mac G3 Series</option>
+           <option value="Asus R051px"{% ifequal obj.model_name "Asus R051px"%}
+           selected="selected" {% endifequal %}>Asus R051px</option>
+           <option value="Bloomberg D530"{% ifequal obj.model_name "Bloomberg D530"%}
+           selected="selected" {% endifequal %}>Bloomberg D530</option>
+           <option value="Lenovo L430"{% ifequal obj.model_name "Lenovo L430"%}
+           selected="selected" {% endifequal %}>Lenovo L430</option>
+           <option value="Dell Optiplex 980"{% ifequal obj.model_name "Dell Optiplex 980"%}
+           selected="selected" {% endifequal %}>Dell Optiplex 980</option>
+           <option value="IBM 2621"{% ifequal obj.model_name "IBM 2621"%}
+           selected="selected" {% endifequal %}>IBM 2621</option>
+           <option value="Dell Optiplex 3010DT"{% ifequal obj.model_name "Dell Optiplex 3010DT"%}
+           selected="selected" {% endifequal %}>Dell Optiplex 3010DT</option>
+           <option value="Lenovo IdeaPad S10-3C"{% ifequal obj.model_name "Lenovo IdeaPad S10-3C"%}
+           selected="selected" {% endifequal %}>Lenovo IdeaPad S10-3C</option>
+           {% for mymodelobj in mymodeltotal %}
+           {% if mymodelobj %}
+           <option value="{{mymodelobj.name}}"{% ifequal obj.model_name mymodelobj.name %}
+           selected="selected" {% endifequal %}>{{mymodelobj.name}}
+         </option>
+         {% endif %}
+         {% endfor %}
+       </select>
+
+     </div>
+   </div>
+   <div class="control-group">
+    <label class="control-label">S No</label>
+    <div class="controls">
+      <input type="text" name="s_no" placeholder="sno" value="{{obj.s_no}}">
     </div>
   </div>
+  <div class="control-group">
+    <label class="control-label">PROCESSOR</label>
+    <div class="controls">
+      <input type="text" name="processor" placeholder="processor" value="{{obj.processor}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">PROCESSOR SPEED</label>
+    <div class="controls">
+      <input type="text" name="processor_speed" placeholder="processor speed" value="{{obj.processor_speed}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">RAM</label>
+    <div class="controls">
+      <input type="text" name="ram" placeholder="ram" value="{{obj.ram}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">HDD</label>
+    <div class="controls">
+      <input type="text" name="hdd" placeholder="hdd" value="{{obj.hdd}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">OS</label>
+    <div class="controls">
+      <input type="text" name="os" placeholder="os" value="{{obj.os}}">
+    </div>
+  </div>
+</div>
+<div class="tab-pane fade" id="step5">
+  <div class="control-group">
+    <label class="control-label">Warranty/AMC</label>
+    <div class="controls">
+      <input type="text" name="warr_amc" placeholder="warr_amc" value="{{obj.warr_amc}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Warranty Vendor</label>
+    <div class="controls">
+      <input type="text" name="warr_vend" placeholder="warr_vend" value="{{obj.warr_vend}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Warranty Start Date</label>
+    <div class="controls">
+      <input type="text" name="warr_start_date" placeholder="warr_start_date" value="{{obj.warr_start_date}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Warranty Expiry Date</label>
+    <div class="controls">
+      <input type="text" name="warr_exp_date" placeholder="warr_exp_date" value="{{obj.warr_exp_date}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Company</label>
+    <div class="controls">
+      <input type="text" name="company" placeholder="company" value="{{obj.company}}">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Po Details</label>
+    <div class="controls">
+      <input type="text" name="po_details" placeholder="po_details" value="{{obj.po_details}}">
+    </div>
+  </div>
+  <div class="controls">
+    <input type="submit" value="submit" class="btn btn-primary" />
+  </div>
+</div>
+</div>
 </div>
 </form>
 </div>
@@ -443,7 +776,7 @@ function setOptions(chosen){
   if(chosen == ""){
     selbox.options[selbox.options.length] = new Option('');
   }
-  if(chosen == "EDITORIALS"){
+  if(chosen == "EDITORIALS(HINDI + ENGLISH)"){
     selbox.options[selbox.options.length] = new Option('DESIGNER');
     selbox.options[selbox.options.length] = new Option('DESK');
     selbox.options[selbox.options.length] = new Option('REPORTING');
@@ -539,7 +872,7 @@ function setOptionsforregion(chosen){
 function setOptionsforunit(chosen){
   var selbox=document.myform.location;
   selbox.options.length=0;
-   
+
   if(chosen == "KANPUR"){
     selbox.options[selbox.options.length] = new Option('BANDA');
     selbox.options[selbox.options.length] = new Option('ETAWAH');

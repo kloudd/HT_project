@@ -3,6 +3,7 @@
 class="active"
 {% endblock %}
 {% block for_view %}
+
 <div class="container-fluid">
 	<div id="pageTab" class="row-fluid">
 		<div class="well-small">
@@ -21,21 +22,21 @@ class="active"
 				</li>
 			</ul>
 			<div class="">
-					<form class="form-search"action="{% url 'search' %}" method="get" style="text-align:right">
-						<a class = "btn btn-info btn-small" href="{% url 'exp' %}">Export to .xls ( online )</a>
-						&nbsp;
-						<input id="id_q" name="q" type="text"  class="input-medium search-query" style="" value="{{ query_string }}" />
-						<button type="submit" class="btn">Search</button>
-					</form>
-				</div>
+				<form class="form-search"action="{% url 'search' %}" method="get" style="text-align:right">
+					<a class = "btn btn-info btn-small" href="{% url 'exp' %}">Export to .xls ( online )</a>
+					&nbsp;
+					<input id="id_q" name="q" type="text"  class="input-medium search-query" style="" value="{{ query_string }}" />
+					<button type="submit" class="btn">Search</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
-<div class="well" style="font-size:12px">
+<div class="" style="font-size:12px">
 	<div class="tab-content">
 		<div id="page1" class="tab-pane">
-			<table class="table table-bordered sortable">
-				<thead> 
+			<table class="table table-bordered sortable table-hover">
+				<thead>
 					<tr>
 						<td></td>
 						<td></td>
@@ -45,17 +46,17 @@ class="active"
 						<th><span class="btn">MODEL</span></th>
 						<th><span class="btn">S&nbsp;NO.</span></th>
 						<th><span class="btn">PROCESSOR</span></th>
+						<th><span class="btn">PROCESSOR&nbsp;SPEED</span></th>
 						<th><span class="btn">RAM</span></th>
 						<th><span class="btn">HDD</span></th>
-						<th><span class="btn">OPERATING SYSTEM</span></th>
+						<th><span class="btn">OPERATING&nbsp;SYSTEM</span></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if orderby %}
 					{% for poll in orderby %}
 					{% ifequal poll.working 1 %}
-					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
-					<tr>
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -64,6 +65,7 @@ class="active"
 						<td data-value="{{poll.model_name}}">{{ poll.model_name }}</td>
 						<td data-value="{{poll.s_no}}">{{ poll.s_no }}</td>
 						<td data-value="{{poll.processor}}">{{ poll.processor }}</td>
+						<td data-value="{{poll.processor_speed}}">{{ poll.processor_speed }}</td>
 						<td data-value="{{poll.ram}}">{{ poll.ram }}</td>
 						<td data-value="{{poll.hdd}}">{{ poll.hdd }}</td>
 						<td data-value="{{poll.os}}">{{ poll.os }}</td>
@@ -73,12 +75,11 @@ class="active"
 					{% else %}
 					{% endif %}
 				</tbody>
-				<tbody>
+				<tbody  style="color:#F00" >
 					{% if found_entries %}
 					{% for poll in found_entries %}
 					{% ifequal poll.working 1 %}
-					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
-					<tr>
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -87,6 +88,7 @@ class="active"
 						<td data-value="{{poll.model_name}}">{{ poll.model_name }}</td>
 						<td data-value="{{poll.s_no}}">{{ poll.s_no }}</td>
 						<td data-value="{{poll.processor}}">{{ poll.processor }}</td>
+						<td data-value="{{poll.processor_speed}}">{{ poll.processor_speed }}</td>
 						<td data-value="{{poll.ram}}">{{ poll.ram }}</td>
 						<td data-value="{{poll.hdd}}">{{ poll.hdd }}</td>
 						<td data-value="{{poll.os}}">{{ poll.os }}</td>
@@ -99,7 +101,7 @@ class="active"
 			</table>
 		</div>
 		<div id="page2" class="tab-pane">
-			<table class="table table-bordered sortable">
+			<table class="table table-bordered sortable table-hover">
 				<thead>
 					<tr>
 						<td></td>
@@ -114,11 +116,11 @@ class="active"
 						<th><span class="btn">FLOOR</span></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if orderby %}
 					{% for poll in orderby %}
 					{% ifequal poll.working 1 %}
-					<tr>
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -135,11 +137,11 @@ class="active"
 					{% else %}
 					{% endif %}
 				</tbody>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if found_entries %}
 					{% for poll in found_entries %}
 					{% ifequal poll.working 1 %}
-					<tr>
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -175,11 +177,11 @@ class="active"
 						<th><span class="btn">HDD&nbsp;DATE</span></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if orderby %}
 					{% for poll in orderby %}
 					{% ifequal poll.working 1 %}
-					<tr>
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -197,11 +199,11 @@ class="active"
 					{% else %}
 					{% endif %}
 				</tbody>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if found_entries %}
 					{% for poll in found_entries %}
 					{% ifequal poll.working 1 %}
-					<tr>
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -237,11 +239,11 @@ class="active"
 						<th><span class="btn">PO DETAILS</span></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if orderby %}
 					{% for poll in orderby %}
 					{% ifequal poll.working 1 %}
-					<tr>
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -256,14 +258,14 @@ class="active"
 					{% endifequal %}
 					{% endfor %}
 					{% else %}
-					
+
 					{% endif %}
 				</tbody>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if found_entries %}
 					{% for poll in found_entries %}
 					{% ifequal poll.working 1 %}
-					<tr>
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -299,12 +301,12 @@ class="active"
 
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if orderby %}
 					{% for poll in orderby %}
 					{% ifequal poll.working 1 %}
-					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
-					<tr>
+					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#F00" {%endif%} -->
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -321,12 +323,12 @@ class="active"
 					{% else %}
 					{% endif %}
 				</tbody>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if found_entries %}
 					{% for poll in found_entries %}
 					{% ifequal poll.working 1 %}
-					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
-					<tr>
+					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#F00" {%endif%} -->
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
@@ -352,24 +354,24 @@ class="active"
 						<td></td>
 						<th><span class="btn">ID</span></th>
 						<th><span class="btn">UID</span></th>	
-						<th><span class="btn">AGENCY</span></th>
+						<th><span class="btn">AGEING</span></th>
 						<th><span class="btn">WEIGHT AGE</span></th>
 						<th><span class="btn">POWER GAP RATING</span></th>
 						<th><span class="btn">WEIGHT COMPUTER</span></th>
 						<th><span class="btn">RISK INDEX</span></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if orderby %}
 					{% for poll in orderby %}
 					{% ifequal poll.working 1 %}
-					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
-					<tr>
+					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#F00" {%endif%} -->
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
 						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
-						<td data-value="{{poll.agency}}">{{ poll.agency }}</td>
+						<td data-value="{{poll.ageing}}">{{ poll.ageing }}</td>
 						<td data-value="{{poll.weight_age}}">{{ poll.weight_age }}</td>	
 						<td data-value="{{poll.power_gap_rating}}">{{ poll.power_gap_rating }}</td>
 						<td data-value="{{poll.weight_computer}}">{{ poll.weight_computer }}</td>
@@ -381,17 +383,17 @@ class="active"
 					{% else %}
 					{% endif %}
 				</tbody>
-				<tbody>
+				<tbody style="color:#F00" >
 					{% if found_entries %}
 					{% for poll in found_entries %}
 					{% ifequal poll.working 1 %}
-					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#C00" {%endif%} -->
-					<tr>
+					<!-- {% if poll.uid or poll.machinename or poll.department or poll.model_name or poll.s_no %} style="color:#F00" {%endif%} -->
+					<tr {% if poll.uid and poll.asset_code and poll.asset_category and poll.region and poll.unit and poll.location and poll.floor and poll.username and poll.empcode and poll.designation and poll.department and poll.machinename and poll.role and poll.model_name and poll.s_no and poll.processor and poll.processor_speed and poll.hdd and poll.ram and poll.os and poll.warr_amc and poll.warr_vend and poll.warr_start_date and poll.warr_exp_date and poll.company and poll.po_details and poll.working and poll.ram_change_date and poll.hdd_change_date%} style="color:#000" {%endif%} >
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-info" href="edit/{{poll.id}}"><i class="icon-edit"></i></a></td>
 						<td data-value="{{poll.id}}"><a class="btn btn-small btn-warning" href="delete/{{poll.id}}"><i class="icon-trash"></i></a></td>
 						<td data-value="{{poll.id}}">{{ poll.id }}</td>
 						<td data-value="{{poll.uid}}">{{ poll.uid }}</td>
-						<td data-value="{{poll.agency}}">{{ poll.agency }}</td>
+						<td data-value="{{poll.ageing}}">{{ poll.ageing }}</td>
 						<td data-value="{{poll.weight_age}}">{{ poll.weight_age }}</td>	
 						<td data-value="{{poll.power_gap_rating}}">{{ poll.power_gap_rating }}</td>
 						<td data-value="{{poll.weight_computer}}">{{ poll.weight_computer }}</td>
@@ -410,5 +412,15 @@ class="active"
 $(function () {
 	$('#pageTab a:first').tab('show');
 })
+</script>
+<script>
+$(function(){
+	$('table').tablesorter({
+		widgets        : ['columns'],
+		usNumberFormat : false,
+		sortReset      : true,
+		sortRestart    : true
+	});
+});
 </script>
 {% endblock %}

@@ -18,6 +18,7 @@ class Poll(models.Model):
     model_name = models.CharField(max_length=200, null=True)
     s_no = models.CharField(max_length=200)
     processor = models.CharField(max_length=200)
+    processor_speed = models.CharField(max_length=200)
     hdd = models.CharField(max_length=200)
     ram = models.CharField(max_length=200)
     os = models.CharField(max_length=200)
@@ -36,17 +37,17 @@ class Poll(models.Model):
     weight_user = models.IntegerField(max_length=10, null=True)
     faliure_rate = models.IntegerField(max_length=10, null=True)
     weight_faliure = models.IntegerField(max_length=10, null=True)
-    agency = models.IntegerField(max_length=10, null=True)
+    ageing = models.IntegerField(max_length=10, null=True)
     weight_age = models.IntegerField(max_length=10, null=True)
     power_gap_rating = models.IntegerField(max_length=10, null=True)
     weight_computer = models.IntegerField(max_length=10, null=True)
-    risk_index = models.IntegerField(max_length=10, null=True)
+    risk_index = models.FloatField(max_length=10, null=True)
+    
 
 
     ################
     
     ################
-
 
 class PollForm(ModelForm):
     class Meta:
@@ -57,3 +58,9 @@ class PollForm(ModelForm):
         # 'hdd','ram','os','warr_amc','warr_vend','warr_start_date'
         # 'warr_exp_date','company','po_details'
         # ]
+
+class mymodel(models.Model):
+    name = models.CharField(max_length=10, null=True)
+    actual_power = models.IntegerField(max_length=10, null=True)
+    faliure_rate = models.IntegerField(max_length=10, null=True)
+    ageing = models.IntegerField(max_length=10, null=True)

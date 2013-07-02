@@ -1,5 +1,6 @@
 from django.contrib import admin
 from manager.models import Poll
+from manager.models import mymodel
 
 class PollAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -32,5 +33,15 @@ class PollAdmin(admin.ModelAdmin):
     ]
     list_display = ('id','uid', 'asset_code','asset_category','region','unit','location','floor','username','empcode','designation','department','machinename','role','model_name','s_no','processor','hdd','ram','os','warr_amc','warr_vend','warr_start_date','warr_exp_date','company','po_details','working','ram_change_date','hdd_change_date')
     search_fields = ['machinename']
+
+class MyModelAdmin(admin.ModelAdmin):
+    fieldsets = [
+    (None, {'fields':['name']}),
+    (None, {'fields':['actual_power']}),
+    (None, {'fields':['faliure_rate']}),
+    (None, {'fields':['ageing']}),]
+    list_display = ('name', 'actual_power', 'faliure_rate', 'ageing')
+
+admin.site.register(mymodel, MyModelAdmin)
 
 admin.site.register(Poll, PollAdmin)

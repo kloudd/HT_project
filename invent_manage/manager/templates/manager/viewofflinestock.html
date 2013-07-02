@@ -18,7 +18,7 @@ class="active"
    </div>
  </div>
 </div>
-<div class="container-fluid well" style="font-size:12px">
+<div class="container-fluid" style="font-size:12px">
   <div class="row-fluid">
     <div class="tab-pane">
       <table class="table table-bordered sortable">
@@ -31,11 +31,12 @@ class="active"
             <th><span class="btn">MODEL</span></th>
             <th><span class="btn">S&nbsp;NO.</span></th>
             <th><span class="btn">PROCESSOR</span></th>
+            <th><span class="btn">PROCESSOR&nbsp;SPEED</span></th>
             <th><span class="btn">RAM</span></th>
             <th><span class="btn">HDD</span></th>
             <th><span class="btn">OS</span></th>
-            <th><span class="btn">RAM DATE</span></th>
-            <th><span class="btn">HDD DATE</span></th>
+            <th><span class="btn">RAM&nbsp;DATE</span></th>
+            <th><span class="btn">HDD&nbsp;DATE</span></th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +52,7 @@ class="active"
             <td data-value="{{ poll.model_name }}">{{ poll.model_name }}</td>
             <td data-value="{{ poll.s_no }}">{{ poll.s_no }}</td>
             <td data-value="{{ poll.processor }}">{{ poll.processor }}</td>
+            <td data-value="{{ poll.processor_speed }}">{{ poll.processor_speed }}</td>
             <td data-value="{{ poll.ram }}">{{ poll.ram }}</td>
             <td data-value="{{ poll.hdd }}">{{ poll.hdd }}</td>
             <td data-value="{{ poll.os }}">{{ poll.os }}</td>
@@ -90,4 +92,14 @@ class="active"
     </div>
   </div>
 </div>
+<script>
+  $(function(){
+    $('table').tablesorter({
+      widgets        : ['zebra', 'columns'],
+      usNumberFormat : false,
+      sortReset      : true,
+      sortRestart    : true
+    });
+  });
+  </script>
 {% endblock %}

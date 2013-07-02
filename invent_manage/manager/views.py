@@ -1,7 +1,7 @@
 # Create your views here.
 from django.template import Context, loader
 from django.core.urlresolvers import reverse
-from manager.models import Poll, PollForm
+from manager.models import Poll, PollForm, mymodel
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.core import serializers
@@ -18,7 +18,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-
+from decimal import Decimal
 
 
 import re
@@ -125,6 +125,7 @@ def view(request):
 @staff_member_required
 def edit(request,id):
 	obj = Poll.objects.get(id=id)
+	mymodeltotal = mymodel.objects.order_by('id')
 	if obj is not None:
 		print "found object", obj
 		return render(request, 'manager/edit2.html',locals())
@@ -260,6 +261,7 @@ def post_config(request):
 			ram = client_data['ram']
 			hdd = client_data['hdd']
 			os = client_data['os']
+			processor_speed = client_data['processor_speed']
 			ram_change_date = datetime.now()
 			hdd_change_date = datetime.now()
 			orderby = Poll.objects.order_by('id')
@@ -296,6 +298,7 @@ def post_config(request):
 			model_name = '',
 			s_no = s_no,
 			processor = processor,
+			processor_speed = processor_speed,
 			hdd = hdd,
 			ram = ram,
 			os = os,
@@ -314,7 +317,7 @@ def post_config(request):
 			weight_user = None,
 			faliure_rate = None,
 			weight_faliure = None,
-			agency = None,
+			ageing = None,
 			weight_age = None,
 			power_gap_rating = None,
 			weight_computer = None,
@@ -357,27 +360,28 @@ def exp(request):
 	sheet.write(1,14,"MODEL NAME",style=default_style)
 	sheet.write(1,15,"S NO",style=default_style)
 	sheet.write(1,16,"PROCESSOR",style=default_style)
-	sheet.write(1,17,"HDD",style=default_style)
-	sheet.write(1,18,"RAM",style=default_style)
-	sheet.write(1,19,"OS",style=default_style)
-	sheet.write(1,20,"WARR AMC",style=default_style)
-	sheet.write(1,21,"WARR VEND",style=default_style)
-	sheet.write(1,22,"WARR START DATE",style=default_style)
-	sheet.write(1,23,"WARR EXP DATE",style=default_style)
-	sheet.write(1,24,"COMPANY",style=default_style)
-	sheet.write(1,25,"PO DETAILS",style=default_style)
-	sheet.write(1,26,"REQUIRED POWER",style=default_style)
-	sheet.write(1,27,"ACTUAL POWER",style=default_style)
-	sheet.write(1,28,"USER CRITICAL",style=default_style)
-	sheet.write(1,29,"WEIGHT USER",style=default_style)
-	sheet.write(1,30,"FALIURE RATE",style=default_style)
-	sheet.write(1,31,"WEIGHT FALIURE",style=default_style)
-	sheet.write(1,32,"AGENCY",style=default_style)
-	sheet.write(1,33,"WEIGHT AGE",style=default_style)
-	sheet.write(1,34,"POWER GAP RATING",style=default_style)
-	sheet.write(1,35,"WEIGHT  COMPUTER",style=default_style)
-	sheet.write(1,36,"RISK INDEX",style=default_style)
-	sheet.write(1,37,"WORKING",style=default_style)
+	sheet.write(1,17,"PROCESSOR SPEED",style=default_style)
+	sheet.write(1,18,"HDD",style=default_style)
+	sheet.write(1,19,"RAM",style=default_style)
+	sheet.write(1,20,"OS",style=default_style)
+	sheet.write(1,21,"WARR AMC",style=default_style)
+	sheet.write(1,22,"WARR VEND",style=default_style)
+	sheet.write(1,23,"WARR START DATE",style=default_style)
+	sheet.write(1,24,"WARR EXP DATE",style=default_style)
+	sheet.write(1,25,"COMPANY",style=default_style)
+	sheet.write(1,26,"PO DETAILS",style=default_style)
+	sheet.write(1,27,"REQUIRED POWER",style=default_style)
+	sheet.write(1,28,"ACTUAL POWER",style=default_style)
+	sheet.write(1,29,"USER CRITICAL",style=default_style)
+	sheet.write(1,30,"WEIGHT USER",style=default_style)
+	sheet.write(1,31,"FALIURE RATE",style=default_style)
+	sheet.write(1,32,"WEIGHT FALIURE",style=default_style)
+	sheet.write(1,33,"AGEING",style=default_style)
+	sheet.write(1,34,"WEIGHT AGE",style=default_style)
+	sheet.write(1,35,"POWER GAP RATING",style=default_style)
+	sheet.write(1,36,"WEIGHT  COMPUTER",style=default_style)
+	sheet.write(1,37,"RISK INDEX",style=default_style)
+	sheet.write(1,38,"WORKING",style=default_style)
 
 	if orderby:
 		row=0
@@ -402,27 +406,28 @@ def exp(request):
 				sheet.write(row+2, 14, poll.model_name, style=style)
 				sheet.write(row+2, 15, poll.s_no, style=style)
 				sheet.write(row+2, 16, poll.processor, style=style)
-				sheet.write(row+2, 17, poll.hdd, style=style)
-				sheet.write(row+2, 18, poll.ram, style=style)
-				sheet.write(row+2, 19, poll.os, style=style)
-				sheet.write(row+2, 20, poll.warr_amc, style=style)
-				sheet.write(row+2, 21, poll.warr_vend, style=style)
-				sheet.write(row+2, 22, poll.warr_start_date, style=style)
-				sheet.write(row+2, 23, poll.warr_exp_date, style=style)
-				sheet.write(row+2, 24, poll.company, style=style)
-				sheet.write(row+2, 25, poll.po_details, style=style)
-				sheet.write(row+2, 26, poll.required_power, style=style)
-				sheet.write(row+2, 27, poll.actual_power, style=style)
-				sheet.write(row+2, 28, poll.user_critical, style=style)
-				sheet.write(row+2, 29, poll.weight_user, style=style)
-				sheet.write(row+2, 30, poll.faliure_rate, style=style)
-				sheet.write(row+2, 31, poll.weight_faliure, style=style)
-				sheet.write(row+2, 32, poll.agency, style=style)
-				sheet.write(row+2, 33, poll.weight_age, style=style)
-				sheet.write(row+2, 34, poll.power_gap_rating, style=style)
-				sheet.write(row+2, 35, poll.weight_computer, style=style)
-				sheet.write(row+2, 36, poll.risk_index, style=style)
-				sheet.write(row+2, 37, poll.working, style=style)
+				sheet.write(row+2, 17, poll.processor_speed, style=style)
+				sheet.write(row+2, 18, poll.hdd, style=style)
+				sheet.write(row+2, 19, poll.ram, style=style)
+				sheet.write(row+2, 20, poll.os, style=style)
+				sheet.write(row+2, 21, poll.warr_amc, style=style)
+				sheet.write(row+2, 22, poll.warr_vend, style=style)
+				sheet.write(row+2, 23, poll.warr_start_date, style=style)
+				sheet.write(row+2, 24, poll.warr_exp_date, style=style)
+				sheet.write(row+2, 25, poll.company, style=style)
+				sheet.write(row+2, 26, poll.po_details, style=style)
+				sheet.write(row+2, 27, poll.required_power, style=style)
+				sheet.write(row+2, 28, poll.actual_power, style=style)
+				sheet.write(row+2, 29, poll.user_critical, style=style)
+				sheet.write(row+2, 30, poll.weight_user, style=style)
+				sheet.write(row+2, 31, poll.faliure_rate, style=style)
+				sheet.write(row+2, 32, poll.weight_faliure, style=style)
+				sheet.write(row+2, 33, poll.ageing, style=style)
+				sheet.write(row+2, 34, poll.weight_age, style=style)
+				sheet.write(row+2, 35, poll.power_gap_rating, style=style)
+				sheet.write(row+2, 36, poll.weight_computer, style=style)
+				sheet.write(row+2, 37, poll.risk_index, style=style)
+				sheet.write(row+2, 38, poll.working, style=style)
 				row = row+1
 
 
@@ -475,6 +480,7 @@ def handle_edit(request):
 		model_name = request.POST.get('model_name')
 		s_no = request.POST.get('s_no')
 		processor = request.POST.get('processor')
+		processor_speed = request.POST.get('processor_speed')
 		hdd = request.POST.get('hdd')
 		ram = request.POST.get('ram')
 		os = request.POST.get('os')
@@ -490,7 +496,7 @@ def handle_edit(request):
 		weight_user = 2
 		faliure_rate = None
 		weight_faliure = 4
-		agency = None
+		ageing = None
 		weight_age = 3
 		power_gap_rating = None
 		weight_computer = 1
@@ -618,809 +624,817 @@ def handle_edit(request):
 		if model_name == 'Dell OptiPlex 380DT':
 			actual_power = 2
 			faliure_rate = 1
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell D630':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell E5420':
 			actual_power = 3
 			faliure_rate = 1
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell Vostro 1014':
 			actual_power = 2
 			faliure_rate = 2
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell OptiPlex GX520':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell D620':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Optiplex GX 260':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell Optiplex GX320':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell D520':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Optiplex GX330':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell  Vostro 1450':
 			actual_power = 2
 			faliure_rate = 1
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell Precision 370':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell D610':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell E6220':
 			actual_power = 3
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell Precision T3400':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Precision M90':
 			actual_power = 1
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HCL Infinite Pro 2000':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell Vestro 1200':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'DHS':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HCL Infinity ':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell Optiplex 390':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell D430':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Optiplex GX960':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Optiplex 790':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'HCL Infiniti Pro':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell D600':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell E6320':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell Optiplex GX745':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'WIPRO SUPER GENIUS':
 			actual_power = -1
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell Optiplex GX 280':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell Poweredge 2950':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell Optiplex D560':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Poweredge 1900':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell Optiplex GX 350':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Precision 5130':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Workstation XW 4300':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell D630':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Dell Precision 450':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM R 52':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM R 60':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8124':
 			actual_power = 1
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM Think Center':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM Netvista':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8175':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8193':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8187':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM R 50':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8305':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8326':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8296':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Fujitsu DT5-D1844':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8297':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8303':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8309':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 6792':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8188':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 9637':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8985':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 1875':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8215':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8123':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 9143':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8305':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'NEC Powermate':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8171':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 6417':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8326':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 9389':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8702':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'IBM 8035':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8177':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 9481':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8191':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'IBM 8126':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8172':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8327':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8376':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8127':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8139':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8309':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8142':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'IBM 8307':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Lenovo M3156':
 			actual_power = 3
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Lenovo 9481':
 			actual_power = 1
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo M6417':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo Think Center':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Lenovo 2048':
 			actual_power = 1
 			faliure_rate = 3
-			agency =2
+			ageing =2
 
 		elif model_name == 'Lenovo M8985':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 4089':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Lenovo Ideapad S100':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Lenovo M9143':
 			actual_power = 3
 			faliure_rate = 0
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 9637':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 9389':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'lenovo 20109':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Lenovo M3156':
 			actual_power = 3
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Lenovo 2931':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Lenovo 8124':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Powermate':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Lenovo 8389':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 8297':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 9491':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 6792':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 9384':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 9989':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo 8171':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Compaq DX 2280 MT':
 			actual_power = 1
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Compaq DX 2480 MT':
 			actual_power = 1
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Compaq EVO':
 			actual_power = -1
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'HP - P 3090':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation Z400':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'HP Workstation XW 4600':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP DC 7600':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP - D7900':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP ProLiant ML110 G6':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation XW 6200':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation XW 4300':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation Z600':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'HP DC 7100':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation XW 4400':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation 7700':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation XW 6600':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP DC 7900':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation Z60':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'G 41':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Compaq 2210b':
 			actual_power = 1
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation XW 3000':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP 2305':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP Workstation XW 4200':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP 8200':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP P1505N':
 			actual_power = 5
 			faliure_rate = 0
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'HP PRECISION 390':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Toshiba PS214L':
 			actual_power = -2
 			faliure_rate = 0
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Fujitsu DT5-D1844':
 			actual_power = -2
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell D400':
 			actual_power = -1
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell D420':
 			actual_power = -1
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Fujitsu Esprimo V6535':
 			actual_power = 1
 			faliure_rate = 3
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Esprimo Mobile V6535':
 			actual_power = 1
 			faliure_rate = 3
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell D410':
 			actual_power = -1
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'MAC BOOK':
 			actual_power = 5
 			faliure_rate = 0
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'IMAC':
 			actual_power = 5
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'APPLE':
 			actual_power = 5
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell Studio XPS 1640':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'MAC Airbook':
 			actual_power = 5
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell Optiplex 160L':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Dell Lattitude X1':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'ASSEMBLED':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'HP 520':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'ASSEMBLED':
 			actual_power = 0
 			faliure_rate = 3
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Sony Vaio':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Sony VGN-TZ17GN':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Sony S2VGN':
 			actual_power = 3
 			faliure_rate = 0
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Power Mac G3 Series':
 			actual_power = 0
 			faliure_rate = 2
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Asus R051px':
 			actual_power = 2
 			faliure_rate = 0
-			agency = 3
+			ageing = 3
 
 		elif model_name == 'Bloomberg D530':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 2
+			ageing = 2
 
 		elif model_name == 'Lenovo L430':
 			actual_power = 5
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Dell Optiplex 980':
 			actual_power = 3
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'IBM 2621':
 			actual_power = 0
 			faliure_rate = 5
-			agency = 5
+			ageing = 5
 
 		elif model_name == 'Dell Optiplex 3010DT':
 			actual_power = 5
 			faliure_rate = 0
-			agency = 1
+			ageing = 1
 
 		elif model_name == 'Lenovo IdeaPad S10-3C':
 			actual_power = 1
 			faliure_rate = 1
-			agency = 1
+			ageing = 1
 
 		else:
-			actual_power = None
-			faliure_rate = None
-			agency = None
+			mymodeltotal = mymodel.objects.order_by('id')
+			for mymodelobj in mymodeltotal:
+				if mymodelobj.name == model_name:
+					actual_power = mymodelobj.actual_power
+					faliure_rate = mymodelobj.faliure_rate
+					ageing = mymodelobj.ageing
 
-		if required_power and actual_power:
+		if required_power != None and actual_power != None :
 			power_gap_rating = required_power - actual_power
+			
 
-		# if user_critical and weight_user and faliure_rate and weight_faliure and agency and weight_age and over
+
+
+		if user_critical != None and weight_user != None and faliure_rate != None and weight_faliure != None and ageing != None and weight_age != None and power_gap_rating != None and weight_computer != None:
+			risk_index = float ((user_critical * weight_user) + (faliure_rate * weight_faliure) + (ageing * weight_age) + (power_gap_rating * weight_computer))/(weight_user + faliure_rate + weight_age + weight_computer)
+			risk_index = Decimal(str(risk_index)).quantize(Decimal('0.01'))
 		
-		# getpower(role, model_name, required_power, actual_power, user_critical, faliure_rate, agency, power_gap_rating, risk_index)
+		# getpower(role, model_name, required_power, actual_power, user_critical, faliure_rate, ageing, power_gap_rating, risk_index)
 
 		working = request.POST.get('working')
 		# if uid & asset_code && asset_category && region && unit && location && floor && username && empcode &&designation && department && machinename && role && model_name && s_no && processor && hdd && ram && os && warr_amc && warr_vend && warr_start_date && warr_exp_date && company && po_details :
@@ -1444,6 +1458,7 @@ def handle_edit(request):
 			obj.model_name = model_name
 			obj.s_no = s_no
 			obj.processor = processor
+			obj.processor_speed = processor_speed
 			obj.hdd = hdd
 			obj.ram = ram
 			obj.os = os
@@ -1459,7 +1474,7 @@ def handle_edit(request):
 			obj.weight_user = weight_user
 			obj.faliure_rate = faliure_rate
 			obj.weight_faliure = weight_faliure
-			obj.agency = agency
+			obj.ageing = ageing
 			obj.weight_age = weight_age
 			obj.power_gap_rating = power_gap_rating
 			obj.weight_computer = weight_computer
@@ -1491,6 +1506,7 @@ def handle_offline_add(request):
 		hdd = request.POST.get('hdd')
 		ram = request.POST.get('ram')
 		os = request.POST.get('os')
+		processor_speed = request.POST.get('processor_speed')
 		asset_code = request.POST.get('asset_code')
 		working = 0
 		hdd_change_date = datetime.now()
@@ -1521,6 +1537,7 @@ def handle_offline_add(request):
 			model_name = model_name,
 			s_no = s_no,
 			processor = processor,
+			processor_speed = processor_speed,
 			hdd = hdd,
 			ram = ram,
 			os = os,
@@ -1539,7 +1556,7 @@ def handle_offline_add(request):
 			weight_user = None,
 			faliure_rate = None,
 			weight_faliure = None,
-			agency = None,
+			ageing = None,
 			weight_age = None,
 			power_gap_rating = None,
 			weight_computer = None,
@@ -1564,6 +1581,7 @@ def handle_offline_edit(request):
 		model_name = request.POST.get('model_name')
 		s_no = request.POST.get('s_no')
 		processor = request.POST.get('processor')
+		processor_speed = request.POST.get('processor_speed')
 		hdd = request.POST.get('hdd')
 		ram = request.POST.get('ram')
 		os = request.POST.get('os')
@@ -1606,7 +1624,7 @@ def handle_offline_edit(request):
 			obj.weight_user = None
 			obj.faliure_rate = None
 			obj.weight_faliure = None
-			obj.agency = None
+			obj.ageing = None
 			obj.weight_age = None
 			obj.power_gap_rating = None
 			obj.weight_computer = None
@@ -1667,16 +1685,17 @@ def expoffline(request):
 	sheet.write(1,14,"MODEL NAME",style=default_style)
 	sheet.write(1,15,"S NO",style=default_style)
 	sheet.write(1,16,"PROCESSOR",style=default_style)
-	sheet.write(1,17,"HDD",style=default_style)
-	sheet.write(1,18,"RAM",style=default_style)
-	sheet.write(1,19,"OS",style=default_style)
-	sheet.write(1,20,"WARR AMC",style=default_style)
-	sheet.write(1,21,"WARR VEND",style=default_style)
-	sheet.write(1,22,"WARR START DATE",style=default_style)
-	sheet.write(1,23,"WARR EXP DATE",style=default_style)
-	sheet.write(1,24,"COMPANY",style=default_style)
-	sheet.write(1,25,"PO DETAILS",style=default_style)
-	sheet.write(1,26,"WORKING",style=default_style)
+	sheet.write(1,17,"PROCESSOR SPEED",style=default_style)
+	sheet.write(1,18,"HDD",style=default_style)
+	sheet.write(1,19,"RAM",style=default_style)
+	sheet.write(1,20,"OS",style=default_style)
+	sheet.write(1,21,"WARR AMC",style=default_style)
+	sheet.write(1,22,"WARR VEND",style=default_style)
+	sheet.write(1,23,"WARR START DATE",style=default_style)
+	sheet.write(1,24,"WARR EXP DATE",style=default_style)
+	sheet.write(1,25,"COMPANY",style=default_style)
+	sheet.write(1,26,"PO DETAILS",style=default_style)
+	sheet.write(1,27,"WORKING",style=default_style)
 
 	if orderby:
 		row=0
@@ -1701,16 +1720,17 @@ def expoffline(request):
 				sheet.write(row+2, 14, poll.model_name, style=style)
 				sheet.write(row+2, 15, poll.s_no, style=style)
 				sheet.write(row+2, 16, poll.processor, style=style)
-				sheet.write(row+2, 17, poll.hdd, style=style)
-				sheet.write(row+2, 18, poll.ram, style=style)
-				sheet.write(row+2, 19, poll.os, style=style)
-				sheet.write(row+2, 20, poll.warr_amc, style=style)
-				sheet.write(row+2, 21, poll.warr_vend, style=style)
-				sheet.write(row+2, 22, poll.warr_start_date, style=style)
-				sheet.write(row+2, 23, poll.warr_exp_date, style=style)
-				sheet.write(row+2, 24, poll.company, style=style)
-				sheet.write(row+2, 25, poll.po_details, style=style)
-				sheet.write(row+2, 26, poll.working, style=style)
+				sheet.write(row+2, 17, poll.processor_speed, style=style)
+				sheet.write(row+2, 18, poll.hdd, style=style)
+				sheet.write(row+2, 19, poll.ram, style=style)
+				sheet.write(row+2, 20, poll.os, style=style)
+				sheet.write(row+2, 21, poll.warr_amc, style=style)
+				sheet.write(row+2, 22, poll.warr_vend, style=style)
+				sheet.write(row+2, 23, poll.warr_start_date, style=style)
+				sheet.write(row+2, 24, poll.warr_exp_date, style=style)
+				sheet.write(row+2, 25, poll.company, style=style)
+				sheet.write(row+2, 26, poll.po_details, style=style)
+				sheet.write(row+2, 27, poll.working, style=style)
 				row = row+1
 
 
@@ -1748,11 +1768,11 @@ def expfull(request):
 	sheet.write(1,1,"UID",style=default_style)
 	sheet.write(1,2,"ASSET CODE",style=default_style)
 	sheet.write(1,3,"ASSET CATEGORY",style=default_style)
-	sheet.write(1,4,"region",style=default_style)
-	sheet.write(1,5,"unit",style=default_style)
+	sheet.write(1,4,"REGION",style=default_style)
+	sheet.write(1,5,"UNT",style=default_style)
 	sheet.write(1,6,"LOCATION",style=default_style)
 	sheet.write(1,7,"FLOOR",style=default_style)
-	sheet.write(1,8,"username",style=default_style)
+	sheet.write(1,8,"USERNAME",style=default_style)
 	sheet.write(1,9,"EMPCODE",style=default_style)
 	sheet.write(1,10,"DESIGNATION",style=default_style)
 	sheet.write(1,11,"DEPARTMENT",style=default_style)
@@ -1761,27 +1781,28 @@ def expfull(request):
 	sheet.write(1,14,"MODEL NAME",style=default_style)
 	sheet.write(1,15,"S NO",style=default_style)
 	sheet.write(1,16,"PROCESSOR",style=default_style)
-	sheet.write(1,17,"HDD",style=default_style)
-	sheet.write(1,18,"RAM",style=default_style)
-	sheet.write(1,19,"OS",style=default_style)
-	sheet.write(1,20,"WARR AMC",style=default_style)
-	sheet.write(1,21,"WARR VEND",style=default_style)
-	sheet.write(1,22,"WARR START DATE",style=default_style)
-	sheet.write(1,23,"WARR EXP DATE",style=default_style)
-	sheet.write(1,24,"COMPANY",style=default_style)
-	sheet.write(1,25,"PO DETAILS",style=default_style)
-	sheet.write(1,26,"REQUIRED POWER",style=default_style)
-	sheet.write(1,27,"ACTUAL POWER",style=default_style)
-	sheet.write(1,28,"USER CRITICAL",style=default_style)
-	sheet.write(1,29,"WEIGHT USER",style=default_style)
-	sheet.write(1,30,"FALIURE RATE",style=default_style)
-	sheet.write(1,31,"WEIGHT FALIURE",style=default_style)
-	sheet.write(1,32,"AGENCY",style=default_style)
-	sheet.write(1,33,"WEIGHT AGE",style=default_style)
-	sheet.write(1,34,"POWER GAP RATING",style=default_style)
-	sheet.write(1,35,"WEIGHT  COMPUTER",style=default_style)
-	sheet.write(1,36,"RISK INDEX",style=default_style)
-	sheet.write(1,37,"WORKING",style=default_style)
+	sheet.write(1,17,"PROCESSOR SPEED",style=default_style)
+	sheet.write(1,18,"HDD",style=default_style)
+	sheet.write(1,19,"RAM",style=default_style)
+	sheet.write(1,20,"OS",style=default_style)
+	sheet.write(1,21,"WARR AMC",style=default_style)
+	sheet.write(1,22,"WARR VEND",style=default_style)
+	sheet.write(1,23,"WARR START DATE",style=default_style)
+	sheet.write(1,24,"WARR EXP DATE",style=default_style)
+	sheet.write(1,25,"COMPANY",style=default_style)
+	sheet.write(1,26,"PO DETAILS",style=default_style)
+	sheet.write(1,27,"REQUIRED POWER",style=default_style)
+	sheet.write(1,28,"ACTUAL POWER",style=default_style)
+	sheet.write(1,29,"USER CRITICAL",style=default_style)
+	sheet.write(1,30,"WEIGHT USER",style=default_style)
+	sheet.write(1,31,"FALIURE RATE",style=default_style)
+	sheet.write(1,32,"WEIGHT FALIURE",style=default_style)
+	sheet.write(1,33,"AGEING",style=default_style)
+	sheet.write(1,34,"WEIGHT AGE",style=default_style)
+	sheet.write(1,35,"POWER GAP RATING",style=default_style)
+	sheet.write(1,36,"WEIGHT  COMPUTER",style=default_style)
+	sheet.write(1,37,"RISK INDEX",style=default_style)
+	sheet.write(1,38,"WORKING",style=default_style)
 
 	if orderby:
 		row=0
@@ -1804,27 +1825,28 @@ def expfull(request):
 			sheet.write(row+2, 14, poll.model_name, style=style)
 			sheet.write(row+2, 15, poll.s_no, style=style)
 			sheet.write(row+2, 16, poll.processor, style=style)
-			sheet.write(row+2, 17, poll.hdd, style=style)
-			sheet.write(row+2, 18, poll.ram, style=style)
-			sheet.write(row+2, 19, poll.os, style=style)
-			sheet.write(row+2, 20, poll.warr_amc, style=style)
-			sheet.write(row+2, 21, poll.warr_vend, style=style)
-			sheet.write(row+2, 22, poll.warr_start_date, style=style)
-			sheet.write(row+2, 23, poll.warr_exp_date, style=style)
-			sheet.write(row+2, 24, poll.company, style=style)
-			sheet.write(row+2, 25, poll.po_details, style=style)
-			sheet.write(row+2, 26, poll.required_power, style=style)
-			sheet.write(row+2, 27, poll.actual_power, style=style)
-			sheet.write(row+2, 28, poll.user_critical, style=style)
-			sheet.write(row+2, 29, poll.weight_user, style=style)
-			sheet.write(row+2, 30, poll.faliure_rate, style=style)
-			sheet.write(row+2, 31, poll.weight_faliure, style=style)
-			sheet.write(row+2, 32, poll.agency, style=style)
-			sheet.write(row+2, 33, poll.weight_age, style=style)
-			sheet.write(row+2, 34, poll.power_gap_rating, style=style)
-			sheet.write(row+2, 35, poll.weight_computer, style=style)
-			sheet.write(row+2, 36, poll.risk_index, style=style)
-			sheet.write(row+2, 37, poll.working, style=style)
+			sheet.write(row+2, 17, poll.processor_speed, style=style)
+			sheet.write(row+2, 18, poll.hdd, style=style)
+			sheet.write(row+2, 19, poll.ram, style=style)
+			sheet.write(row+2, 20, poll.os, style=style)
+			sheet.write(row+2, 21, poll.warr_amc, style=style)
+			sheet.write(row+2, 22, poll.warr_vend, style=style)
+			sheet.write(row+2, 23, poll.warr_start_date, style=style)
+			sheet.write(row+2, 24, poll.warr_exp_date, style=style)
+			sheet.write(row+2, 25, poll.company, style=style)
+			sheet.write(row+2, 26, poll.po_details, style=style)
+			sheet.write(row+2, 27, poll.required_power, style=style)
+			sheet.write(row+2, 28, poll.actual_power, style=style)
+			sheet.write(row+2, 29, poll.user_critical, style=style)
+			sheet.write(row+2, 30, poll.weight_user, style=style)
+			sheet.write(row+2, 31, poll.faliure_rate, style=style)
+			sheet.write(row+2, 32, poll.weight_faliure, style=style)
+			sheet.write(row+2, 33, poll.ageing, style=style)
+			sheet.write(row+2, 34, poll.weight_age, style=style)
+			sheet.write(row+2, 35, poll.power_gap_rating, style=style)
+			sheet.write(row+2, 36, poll.weight_computer, style=style)
+			sheet.write(row+2, 37, poll.risk_index, style=style)
+			sheet.write(row+2, 38, poll.working, style=style)
 			row = row+1
 
 
@@ -1865,13 +1887,13 @@ def searchoffline(request):
                           { 'query_string': query_string, 'found_entries': found_entries },
                           context_instance=RequestContext(request))
 
-# def getpower(role, model_name, required_power, actual_power, user_critical, faliure_rate, agency, power_gap_rating, risk_index):
+# def getpower(role, model_name, required_power, actual_power, user_critical, faliure_rate, ageing, power_gap_rating, risk_index):
 # 	mod_name = model_name
 # 	required_power = 0
 # 	actual_power = 0
 # 	user_critical = 0
 # 	faliure_rate = 0
-# 	agency = 0
+# 	ageing = 0
 # 	power_gap_rating = 0
 # 	risk_index = 0
 # 	if role == 'DESIGNER':
